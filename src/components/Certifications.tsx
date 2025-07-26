@@ -2,6 +2,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Award, ExternalLink } from "lucide-react";
 import eaLogo from "@/assets/logos/ea-logo.png";
+import ibmLogo from "@/assets/logos/ibm-logo.png";
+import tataLogo from "@/assets/logos/tata-logo.png";
+import linkedinLogo from "@/assets/logos/linkedin-logo.png";
+import deloitteLogo from "@/assets/logos/deloitte-logo.png";
+import bcgLogo from "@/assets/logos/bcg-logo.png";
+import accentureLogo from "@/assets/logos/accenture-logo.png";
+import oracleLogo from "@/assets/logos/oracle-logo.png";
+import infosysLogo from "@/assets/logos/infosys-logo.png";
+import quantiumLogo from "@/assets/logos/quantium-logo.png";
+import udemyLogo from "@/assets/logos/udemy-logo.png";
 
 const Certifications = () => {
   const certifications = [
@@ -10,7 +20,7 @@ const Certifications = () => {
       issuer: "IBM SkillsBuild",
       date: "September 2024",
       type: "AI/ML",
-      logo: null
+      logo: ibmLogo
     },
     {
       title: "Software Engineering Job Simulation",
@@ -24,14 +34,14 @@ const Certifications = () => {
       issuer: "TATA Group (FORAGE)",
       date: "May 2025",
       type: "Data Analytics",
-      logo: null
+      logo: tataLogo
     },
     {
       title: "Python Essential Training",
       issuer: "LinkedIn Learning",
       date: "May 2025",
       type: "Programming",
-      logo: null
+      logo: linkedinLogo
     },
     {
       title: "Product Management Job Simulation",
@@ -45,84 +55,84 @@ const Certifications = () => {
       issuer: "Deloitte (FORAGE)",
       date: "May 2025",
       type: "Data Analytics",
-      logo: null
+      logo: deloitteLogo
     },
     {
       title: "GenAI Job Simulation",
       issuer: "BCG (FORAGE)",
       date: "May 2025",
       type: "AI/ML",
-      logo: null
+      logo: bcgLogo
     },
     {
       title: "Software Engineering Job Simulation",
       issuer: "Accenture (FORAGE)",
       date: "May 2025",
       type: "Software Engineering",
-      logo: null
+      logo: accentureLogo
     },
     {
       title: "Prompt Engineering Using ChatGPT",
       issuer: "LinkedIn Learning",
       date: "May 2025",
       type: "AI/ML",
-      logo: null
+      logo: linkedinLogo
     },
     {
       title: "Sales Strategy: Using AI and Automation to Sell More",
       issuer: "LinkedIn Learning",
       date: "May 2025",
       type: "Business",
-      logo: null
+      logo: linkedinLogo
     },
     {
       title: "Vibe Coding Fundamentals: Tools and Best Practices",
       issuer: "LinkedIn Learning",
       date: "May 2025",
       type: "Programming",
-      logo: null
+      logo: linkedinLogo
     },
     {
       title: "Natural Language Processing",
       issuer: "Udemy",
       date: "June 2025",
       type: "AI/ML",
-      logo: null
+      logo: udemyLogo
     },
     {
       title: "GenAI-Powered Data Analytics Job Simulation",
       issuer: "TATA Group (FORAGE)",
       date: "June 2025",
       type: "Data Analytics",
-      logo: null
+      logo: tataLogo
     },
     {
       title: "Generative AI: Working with Large Language Models",
       issuer: "LinkedIn Learning",
       date: "June 2025",
       type: "AI/ML",
-      logo: null
+      logo: linkedinLogo
     },
     {
       title: "Data Analytics Job Simulation",
       issuer: "Quantium (FORAGE)",
       date: "June 2025",
       type: "Data Analytics",
-      logo: null
+      logo: quantiumLogo
     },
     {
       title: "Prompt Engineering",
       issuer: "Infosys",
       date: "June 2025",
       type: "AI/ML",
-      logo: null
+      logo: infosysLogo
     },
     {
       title: "AI Foundations Associate",
       issuer: "Oracle University",
       date: "June 2025",
       type: "AI/ML",
-      logo: null
+      logo: oracleLogo
     },
     {
       title: "AI Aware",
