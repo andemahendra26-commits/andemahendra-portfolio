@@ -50,16 +50,13 @@ const Hero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start">
               <Button 
                 size="lg" 
                 className="shadow-soft"
                 onClick={() => window.open('https://www.linkedin.com/in/ande-mahendra-7a9420235/', '_blank')}
               >
                 Let's Connect
-              </Button>
-              <Button variant="outline" size="lg" className="shadow-soft">
-                View Projects
               </Button>
             </div>
           </div>
