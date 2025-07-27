@@ -25,8 +25,8 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/andemahendra",
-      href: "https://linkedin.com/in/andemahendra"
+      value: "linkedin.com/in/ande-mahendra-7a9420235",
+      href: "https://www.linkedin.com/in/ande-mahendra-7a9420235/"
     }
   ];
 
