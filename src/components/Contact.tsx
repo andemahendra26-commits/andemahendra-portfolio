@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Github, Download } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
@@ -66,14 +66,16 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-border">
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="flex items-center gap-2 shadow-soft">
-                      <Download className="w-4 h-4" />
-                      Download Resume
-                    </Button>
-                    <Button variant="outline" className="flex items-center gap-2 shadow-soft">
+                  <div className="space-y-4">
+                    <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                      <h4 className="font-semibold text-primary mb-2">🚀 Ready to Contribute</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Eager to bring fresh perspectives and dedication to your team
+                      </p>
+                    </div>
+                    <Button className="w-full flex items-center gap-2 shadow-soft">
                       <Github className="w-4 h-4" />
-                      View GitHub
+                      View My Work & Projects
                     </Button>
                   </div>
                 </div>

@@ -16,9 +16,6 @@ const Hero = () => {
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-soft">
-                <span className="text-primary-foreground text-2xl font-bold">AM</span>
-              </div>
             </div>
           </div>
 
@@ -55,7 +52,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="shadow-soft">
-                Download Resume
+                Let's Connect
               </Button>
               <Button variant="outline" size="lg" className="shadow-soft">
                 View Projects

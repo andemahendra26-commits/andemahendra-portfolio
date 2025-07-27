@@ -36,9 +36,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - Empty space for alignment */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-foreground">AM</span>
           </div>
 
           {/* Desktop Navigation */}
