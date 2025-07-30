@@ -22,7 +22,8 @@ const Projects = () => {
       description: "An Online Apparel Shopping Application designed to enhance customer experience in today's fast-growing e-commerce world. Based on the Engel-Kollat-Blackwell (EKB) Model, analyzing consumer decision-making patterns for online clothing purchases.",
       scope: "Defines comprehensive functionality and boundaries with potential for future development",
       technologies: ["Python", "MongoDB", "Windows Platform"],
-      category: "Application Development"
+      category: "Application Development",
+      image: "/lovable-uploads/5c569caa-9b04-4336-9ab6-2189d9382fb8.png"
     }
   ];
 
