@@ -12,7 +12,8 @@ const Projects = () => {
       description: "A fully functional clothing e-commerce website that allows users to browse, search, and purchase fashion products online. Replicates key features of modern online retail platforms with a smooth, user-friendly shopping experience.",
       scope: "Developed a working website which showcase all types of clothes based on categories",
       technologies: ["WordPress", "JDBC (Java Database Connectivity)"],
-      category: "Web Development"
+      category: "Web Development",
+      image: "/lovable-uploads/4e5746ac-e24a-4692-9807-48eb78a52a97.png"
     },
     {
       title: "E-Commerce Application (Clothing)",
@@ -55,6 +56,15 @@ const Projects = () => {
               </CardHeader>
               
               <CardContent className="space-y-4">
+                {project.image && (
+                  <div className="w-full h-48 rounded-lg overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <p className="text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
