@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ShoppingCart, Smartphone } from "lucide-react";
+import { ExternalLink, Github, ShoppingCart, Smartphone, Bot } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -24,6 +24,17 @@ const Projects = () => {
       technologies: ["Python", "MongoDB", "Windows Platform"],
       category: "Application Development",
       image: "/lovable-uploads/5c569caa-9b04-4336-9ab6-2189d9382fb8.png"
+    },
+    {
+      title: "Alfredo AI Agent",
+      type: "AI Agent",
+      icon: Bot,
+      description: "A custom-trained AI personal assistant built using AgentX.so platform. Alfredo is designed to provide intelligent responses and assistance across various domains, integrating multiple AI models for enhanced performance and versatility.",
+      scope: "Developed and trained a personalized AI agent with multi-model integration for comprehensive AI assistance",
+      technologies: ["AgentX.so", "OpenAI API", "Llama", "Anthropic", "Grok", "DeepSeek"],
+      category: "AI Development",
+      image: "/lovable-uploads/c113e111-f5c7-4ad8-9df4-31d2d382bcc7.png",
+      demoUrl: "https://app.agentx.so/shared-chat/?agent=688a1e4a42b87b91d3bab664"
     }
   ];
 
@@ -93,9 +104,22 @@ const Projects = () => {
                     <Github className="w-4 h-4" />
                     View Code
                   </Button>
-                  <Button size="sm" className="flex items-center gap-2">
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
+                  <Button 
+                    size="sm" 
+                    className="flex items-center gap-2"
+                    asChild={!!project.demoUrl}
+                  >
+                    {project.demoUrl ? (
+                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4" />
+                        Try Alfredo
+                      </a>
+                    ) : (
+                      <>
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </>
+                    )}
                   </Button>
                 </div>
               </CardContent>
