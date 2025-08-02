@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Award, ExternalLink } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import eaLogo from "@/assets/logos/ea-logo.png";
 import ibmLogo from "@/assets/logos/ibm-logo.png";
 import tataLogo from "@/assets/logos/tata-logo.png";
@@ -14,6 +16,14 @@ import quantiumLogo from "@/assets/logos/quantium-logo.png";
 import udemyLogo from "@/assets/logos/udemy-logo.png";
 
 const Certifications = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
   const certifications = [
     {
       title: "Introduction to Artificial Intelligence",

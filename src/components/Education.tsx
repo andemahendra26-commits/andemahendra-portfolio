@@ -1,7 +1,18 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const Education = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+
   const educationData = [
     {
       degree: "B.Tech in Computer Science Engineering (AI & ML)",
@@ -30,7 +41,12 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-background">
+    <motion.section 
+      ref={sectionRef}
+      id="education" 
+      className="py-20 bg-background"
+      style={{ opacity }}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">Education</h2>
@@ -88,7 +104,7 @@ const Education = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
