@@ -16,14 +16,8 @@ import quantiumLogo from "@/assets/logos/quantium-logo.png";
 import udemyLogo from "@/assets/logos/udemy-logo.png";
 
 const Certifications = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0.5, 0.7], [50, 0]);
   const certifications = [
     {
       title: "Introduction to Artificial Intelligence",
@@ -166,8 +160,14 @@ const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <motion.section 
+      id="certifications" 
+      className="py-20 bg-background"
+      style={{ y }}
+    >
+      <motion.div 
+        className="container mx-auto px-4"
+      >
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">Certifications & Achievements</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -227,8 +227,8 @@ const Certifications = () => {
             <span className="font-semibold">{certifications.length}</span> professional certifications completed
           </p>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
