@@ -16,14 +16,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Skills = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0.1, 0.3], [50, 0]);
 
   const skillCategories = [
     {
@@ -68,10 +62,8 @@ const Skills = () => {
 
   return (
     <motion.section 
-      ref={sectionRef}
       id="skills" 
       className="py-20 bg-background"
-      style={{ opacity }}
     >
       <motion.div 
         className="container mx-auto px-4"
