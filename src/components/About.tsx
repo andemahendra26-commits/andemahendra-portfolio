@@ -4,14 +4,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const About = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0.1, 0.3], [80, 0]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.2], [0.9, 1]);
 
   const languages = [
     { name: "English", level: "Fluent" },
@@ -32,14 +27,27 @@ const About = () => {
 
   return (
     <motion.section 
-      ref={sectionRef}
       id="about" 
-      className="py-20 bg-muted/30"
-      style={{ opacity }}
+      className="py-20 relative overflow-hidden"
+      style={{ y, scale }}
     >
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-subtle"></div>
       <motion.div 
-        className="container mx-auto px-4"
-        style={{ y }}
+        className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+        animate={{ 
+          x: [0, 50, 0],
+          y: [0, -30, 0]
+        }}
+        transition={{ 
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div 
+        className="container mx-auto px-4 relative z-10"
       >
         <motion.div 
           className="text-center mb-16"
@@ -77,9 +85,9 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="shadow-soft mb-12">
+            <Card className="shadow-neon mb-12 glass-effect border-0 backdrop-blur-xl glow-effect">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-foreground mb-6">Professional Objective</h3>
+                <h3 className="text-2xl font-semibold gradient-text mb-6">Professional Objective</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   A highly motivated and passionate B.Tech Computer Science Engineering (Artificial Intelligence & Machine Learning) 
                   student, nearing graduation, with a strong desire to begin my professional journey. Eager to contribute to an 
@@ -100,12 +108,12 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-neon hover:shadow-glow transition-all duration-500 glass-effect border-0 backdrop-blur-xl glow-effect floating-animation">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <motion.div 
-                      className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
-                      whileHover={{ rotate: 360 }}
+                      className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                     >
                       <Globe className="w-5 h-5 text-primary-foreground" />
@@ -141,7 +149,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-neon hover:shadow-glow transition-all duration-500 glass-effect border-0 backdrop-blur-xl glow-effect floating-animation" style={{ animationDelay: '2s' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-6">Hobbies & Interests</h3>
                   <div className="space-y-4">
@@ -172,7 +180,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-neon hover:shadow-glow transition-all duration-500 glass-effect border-0 backdrop-blur-xl glow-effect floating-animation" style={{ animationDelay: '4s' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-6">Extracurricular Activities</h3>
                   <div className="space-y-4">
@@ -206,7 +214,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="shadow-soft mt-12">
+            <Card className="shadow-neon mt-12 glass-effect border-0 backdrop-blur-xl glow-effect">
               <CardContent className="p-8 text-center">
                 <h3 className="text-xl font-semibold text-foreground mb-4">Declaration</h3>
                 <p className="text-muted-foreground italic">
