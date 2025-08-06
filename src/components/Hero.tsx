@@ -175,6 +175,31 @@ const Hero = () => {
               ))}
             </motion.div>
 
+            {/* Social Links */}
+            <motion.div 
+              className="flex justify-center lg:justify-start mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+            >
+              <motion.a
+                href="https://www.instagram.com/_nani__26?igsh=MWp1cXQyMHFlMzk2NA%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-muted-foreground backdrop-blur-sm bg-white/5 px-6 py-3 rounded-full border border-white/10 glow-effect cursor-pointer hover:text-primary transition-colors"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Instagram className="w-5 h-5" />
+                </motion.div>
+                <span className="font-medium">Follow me on Instagram</span>
+              </motion.a>
+            </motion.div>
+
             {/* CTA Buttons */}
             <motion.div 
               className="flex justify-center lg:justify-start"
