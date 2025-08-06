@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -152,15 +152,17 @@ const Hero = () => {
               {[
                 { icon: Mail, text: "andemahendra26@gmail.com" },
                 { icon: Phone, text: "9063064262" },
-                { icon: MapPin, text: "Hyderabad, India" }
+                { icon: MapPin, text: "Hyderabad, India" },
+                { icon: Instagram, text: "@_nani__26", url: "https://www.instagram.com/_nani__26?igsh=MWp1cXQyMHFlMzk2NA%3D%3D&utm_source=qr" }
               ].map((contact, index) => (
                 <motion.div 
                   key={index}
-                  className="flex items-center gap-3 text-muted-foreground backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full border border-white/10 glow-effect"
+                  className={`flex items-center gap-3 text-muted-foreground backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full border border-white/10 glow-effect ${contact.url ? 'cursor-pointer' : ''}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
                   whileHover={{ scale: 1.05, x: 5, backgroundColor: "hsl(234 89% 74% / 0.1)" }}
+                  onClick={contact.url ? () => window.open(contact.url, '_blank') : undefined}
                 >
                   <motion.div
                     whileHover={{ rotate: 360 }}
