@@ -31,11 +31,10 @@ const Experience = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       ref={sectionRef}
       id="experience" 
       className="py-20 bg-muted/30"
-      style={{ opacity }}
     >
       <motion.div 
         className="container mx-auto px-4"
@@ -110,7 +109,7 @@ const Experience = () => {
           ))}
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -31,10 +31,9 @@ const Hero = () => {
   };
 
   return (
-    <motion.section 
+    <section 
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4 py-20"
-      style={{ opacity }}
     >
       <motion.div 
         className="container max-w-6xl mx-auto"
@@ -152,7 +151,7 @@ const Hero = () => {
           </motion.div>
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 
