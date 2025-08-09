@@ -1,17 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, Calendar } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
 
   const experiences = [
     {
@@ -32,14 +23,10 @@ const Experience = () => {
 
   return (
     <section 
-      ref={sectionRef}
       id="experience" 
       className="py-20 bg-muted/30"
     >
-      <motion.div 
-        className="container mx-auto px-4"
-        style={{ y }}
-      >
+      <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -108,7 +95,7 @@ const Experience = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

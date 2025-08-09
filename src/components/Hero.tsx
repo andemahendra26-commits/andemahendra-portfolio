@@ -1,18 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  console.log("Hero component rendering");
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
 
   const profileImages = [
     "/lovable-uploads/0ddc5395-b1db-4be8-b996-668ab74deb63.png",
@@ -33,13 +24,9 @@ const Hero = () => {
 
   return (
     <section 
-      ref={sectionRef}
       className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4 py-20"
     >
-      <motion.div 
-        className="container max-w-6xl mx-auto"
-        style={{ y }}
-      >
+      <div className="container max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Profile Image */}
           <motion.div 
@@ -151,7 +138,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
