@@ -31,11 +31,10 @@ const About = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       ref={sectionRef}
       id="about" 
       className="py-20 bg-muted/30"
-      style={{ opacity }}
     >
       <motion.div 
         className="container mx-auto px-4"
@@ -220,7 +219,7 @@ const About = () => {
           </motion.div>
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 

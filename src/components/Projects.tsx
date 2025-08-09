@@ -52,11 +52,10 @@ const Projects = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       ref={sectionRef}
       id="projects" 
       className="py-20 bg-muted/30 relative overflow-hidden"
-      style={{ opacity }}
     >
       <div className="container mx-auto px-4">
         <motion.div 
@@ -260,7 +259,7 @@ const Projects = () => {
           </Carousel>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -67,11 +67,10 @@ const Skills = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       ref={sectionRef}
       id="skills" 
       className="py-20 bg-background"
-      style={{ opacity }}
     >
       <motion.div 
         className="container mx-auto px-4"
@@ -183,7 +182,7 @@ const Skills = () => {
           </div>
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 
