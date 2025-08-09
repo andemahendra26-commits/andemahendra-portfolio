@@ -4,8 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Experience = () => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0.2, 0.4], [50, 0]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
 
   const experiences = [
     {
@@ -26,8 +32,10 @@ const Experience = () => {
 
   return (
     <motion.section 
+      ref={sectionRef}
       id="experience" 
       className="py-20 bg-muted/30"
+      style={{ opacity }}
     >
       <motion.div 
         className="container mx-auto px-4"

@@ -7,9 +7,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Projects = () => {
-  const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0.4, 0.6], [0.9, 1]);
-  const y = useTransform(scrollYProgress, [0.4, 0.6], [50, 0]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
 
   const projects = [
     {
@@ -47,8 +53,10 @@ const Projects = () => {
 
   return (
     <motion.section 
+      ref={sectionRef}
       id="projects" 
       className="py-20 bg-muted/30 relative overflow-hidden"
+      style={{ opacity }}
     >
       <div className="container mx-auto px-4">
         <motion.div 

@@ -4,8 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Education = () => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0.3, 0.5], [50, 0]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
 
   const educationData = [
     {
@@ -36,8 +42,10 @@ const Education = () => {
 
   return (
     <motion.section 
+      ref={sectionRef}
       id="education" 
       className="py-20 bg-background"
+      style={{ opacity }}
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
