@@ -10,6 +10,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  console.log("Index component rendering");
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
