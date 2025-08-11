@@ -111,7 +111,7 @@ const Projects = () => {
                     }}
                     viewport={{ once: true }}
                   >
-                    <Card className="shadow-soft hover:shadow-elegant transition-all duration-500 h-full backdrop-blur-sm">
+                    <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-500 h-full backdrop-blur-sm">
                       <CardHeader className="pb-4">
                         <motion.div 
                           className="flex items-start justify-between"

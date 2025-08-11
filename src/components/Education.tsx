@@ -45,7 +45,7 @@ const Education = () => {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {educationData.map((edu, index) => (
-            <Card key={index} className="shadow-soft hover:shadow-elegant transition-all duration-300">
+            <Card key={index} className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
               <CardContent className="p-8">
                 <div className="flex flex-col lg:flex-row gap-6">
                   <div className="flex-shrink-0">

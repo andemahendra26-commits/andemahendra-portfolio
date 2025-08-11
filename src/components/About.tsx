@@ -99,7 +99,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-6">
                     <motion.div 
@@ -140,7 +140,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-6">Hobbies & Interests</h3>
                   <div className="space-y-4">
@@ -171,7 +171,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-6">Extracurricular Activities</h3>
                   <div className="space-y-4">

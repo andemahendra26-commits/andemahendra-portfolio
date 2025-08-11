@@ -110,7 +110,7 @@ const Skills = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+                <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <motion.div 
@@ -166,7 +166,7 @@ const Skills = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+                <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
                   <CardContent className="p-4 text-center">
                     <motion.div
                       whileHover={{ rotate: [0, -10, 10, 0] }}

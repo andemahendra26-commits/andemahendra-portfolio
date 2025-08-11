@@ -50,7 +50,7 @@ const Experience = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+              <Card className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row gap-6">
                     <motion.div 
