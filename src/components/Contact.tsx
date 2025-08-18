@@ -56,7 +56,7 @@ const Contact = () => {
                         <p className="text-sm text-muted-foreground">{item.label}</p>
                         <a 
                           href={item.href}
-                          className="text-foreground font-medium hover:text-primary hover:bg-gradient-hover hover:shadow-soft px-2 py-1 rounded transition-all duration-300"
+                          className="text-foreground font-medium hover:text-primary hover:shadow-soft px-2 py-1 rounded transition-all duration-300"
                         >
                           {item.value}
                         </a>

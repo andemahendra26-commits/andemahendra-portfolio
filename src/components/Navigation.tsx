@@ -46,7 +46,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground hover:text-primary hover:bg-gradient-hover hover:shadow-soft px-3 py-2 rounded transition-all duration-300"
+                className="text-foreground hover:text-primary hover:shadow-soft px-3 py-2 rounded transition-all duration-300"
               >
                 {item.name}
               </a>
@@ -75,7 +75,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-foreground hover:text-primary hover:bg-gradient-hover hover:shadow-soft rounded transition-all duration-300"
+                  className="block px-3 py-2 text-foreground hover:text-primary hover:shadow-soft rounded transition-all duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}

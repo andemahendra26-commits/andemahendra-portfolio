@@ -167,7 +167,7 @@ const Certifications = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {certifications.map((cert, index) => (
-            <Card key={index} className="shadow-soft hover:shadow-elegant hover:bg-gradient-hover transition-all duration-300 h-full">
+            <Card key={index} className="shadow-soft hover:shadow-elegant transition-all duration-300 h-full">
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-grow">
