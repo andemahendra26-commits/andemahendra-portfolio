@@ -60,15 +60,11 @@ const Experience = () => {
               <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row gap-6">
-                    <motion.div 
-                      className="flex-shrink-0"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
+                    <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
                         <Briefcase className="w-8 h-8 text-primary-foreground" />
                       </div>
-                    </motion.div>
+                    </div>
                     
                     <div className="flex-grow">
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
