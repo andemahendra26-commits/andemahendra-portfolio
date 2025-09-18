@@ -12,6 +12,7 @@ import oracleLogo from "@/assets/logos/oracle-logo.png";
 import infosysLogo from "@/assets/logos/infosys-logo.png";
 import quantiumLogo from "@/assets/logos/quantium-logo.png";
 import udemyLogo from "@/assets/logos/udemy-logo.png";
+import awsLogo from "@/assets/logos/aws-logo.png";
 
 const Certifications = () => {
   const certifications = [
@@ -140,6 +141,20 @@ const Certifications = () => {
       date: "June 2025",
       type: "AI/ML",
       logo: null
+    },
+    {
+      title: "Certified Machine Learning Specialty",
+      issuer: "AWS",
+      date: "August 2025",
+      type: "AI/ML",
+      logo: awsLogo
+    },
+    {
+      title: "Certified Artificial Intelligence Practitioner",
+      issuer: "AWS",
+      date: "August 2025",
+      type: "AI/ML",
+      logo: awsLogo
     }
   ];
 
