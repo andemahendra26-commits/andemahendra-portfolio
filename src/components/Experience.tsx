@@ -6,6 +6,13 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: "AI Developer Intern",
+      company: "Viswam.AI – Summer of AI 2025",
+      duration: "August 2025 - September 2025",
+      type: "Internship",
+      description: "Selected for the world's largest AI internship program, a collaborative initiative by Viswam.AI, Swecha, IIIT Hyderabad, Meta, TASK, and HYSEA. Completed a 4-week intensive program focused on practical AI software development, model fine-tuning, and open-source projects. Gained hands-on experience in Python for AI applications, data curation for culturally relevant AI models, and contributed to the foundational Telugu LLM project."
+    },
+    {
       title: "Web Manager",
       company: "Switch2ITjobs.com",
       duration: "June 2022 - September 2022",
