@@ -8,7 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional Grey Scale Design System */
+    /* 50 Shades of Grey - Premium Color Palette */
+    --grey-0: 0 0% 100%;
+    --grey-5: 0 0% 98%;
+    --grey-10: 0 0% 96%;
+    --grey-15: 0 0% 94%;
+    --grey-20: 0 0% 92%;
+    --grey-25: 0 0% 90%;
+    --grey-30: 0 0% 88%;
+    --grey-35: 0 0% 86%;
+    --grey-40: 0 0% 84%;
+    --grey-45: 0 0% 82%;
+    --grey-50: 0 0% 80%;
+    --grey-55: 0 0% 78%;
+    --grey-60: 0 0% 76%;
+    --grey-65: 0 0% 74%;
+    --grey-70: 0 0% 72%;
+    --grey-75: 0 0% 70%;
+    --grey-80: 0 0% 68%;
+    --grey-85: 0 0% 66%;
+    --grey-90: 0 0% 64%;
+    --grey-95: 0 0% 62%;
+    --grey-100: 0 0% 60%;
+    --grey-105: 0 0% 58%;
+    --grey-110: 0 0% 56%;
+    --grey-115: 0 0% 54%;
+    --grey-120: 0 0% 52%;
+    --grey-125: 0 0% 50%;
+    --grey-130: 0 0% 48%;
+    --grey-135: 0 0% 46%;
+    --grey-140: 0 0% 44%;
+    --grey-145: 0 0% 42%;
+    --grey-150: 0 0% 40%;
+    --grey-155: 0 0% 38%;
+    --grey-160: 0 0% 36%;
+    --grey-165: 0 0% 34%;
+    --grey-170: 0 0% 32%;
+    --grey-175: 0 0% 30%;
+    --grey-180: 0 0% 28%;
+    --grey-185: 0 0% 26%;
+    --grey-190: 0 0% 24%;
+    --grey-195: 0 0% 22%;
+    --grey-200: 0 0% 20%;
+    --grey-205: 0 0% 18%;
+    --grey-210: 0 0% 16%;
+    --grey-215: 0 0% 14%;
+    --grey-220: 0 0% 12%;
+    --grey-225: 0 0% 10%;
+    --grey-230: 0 0% 8%;
+    --grey-235: 0 0% 6%;
+    --grey-240: 0 0% 4%;
+    --grey-245: 0 0% 2%;
+    --grey-250: 0 0% 0%;
+
+    /* Semantic Design System */
     --background: 0 0% 98%;
     --foreground: 0 0% 10%;
 
@@ -37,15 +90,19 @@ All colors MUST be HSL.
     --input: 0 0% 94%;
     --ring: 0 0% 20%;
 
-    /* Custom design tokens for portfolio */
-    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 95%));
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 20%), hsl(0 0% 30%));
-    --gradient-interactive: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 25%));
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.1);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Premium Design Tokens - Apple-style */
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 95%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 30%) 100%);
+    --gradient-interactive: linear-gradient(135deg, hsl(0 0% 15%) 0%, hsl(0 0% 25%) 100%);
+    --gradient-radial: radial-gradient(circle at 50% 50%, hsl(0 0% 100% / 0.1) 0%, transparent 70%);
+    --shadow-elegant: 0 20px 60px -15px hsl(0 0% 0% / 0.15);
+    --shadow-soft: 0 8px 32px -8px hsl(0 0% 0% / 0.12);
+    --shadow-sharp: 0 2px 8px -2px hsl(0 0% 0% / 0.1);
+    --blur-glass: blur(20px);
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -93,11 +150,13 @@ All colors MUST be HSL.
     --input: 0 0% 15%;
     --ring: 0 0% 83.9%;
 
-    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 12%));
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 95%), hsl(0 0% 85%));
-    --gradient-interactive: linear-gradient(135deg, hsl(0 0% 95%), hsl(0 0% 90%));
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.2);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 95%) 0%, hsl(0 0% 85%) 100%);
+    --gradient-interactive: linear-gradient(135deg, hsl(0 0% 95%) 0%, hsl(0 0% 90%) 100%);
+    --gradient-radial: radial-gradient(circle at 50% 50%, hsl(0 0% 0% / 0.2) 0%, transparent 70%);
+    --shadow-elegant: 0 20px 60px -15px hsl(0 0% 0% / 0.4);
+    --shadow-soft: 0 8px 32px -8px hsl(0 0% 0% / 0.3);
+    --shadow-sharp: 0 2px 8px -2px hsl(0 0% 0% / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
