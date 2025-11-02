@@ -1,148 +1,144 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Mail, MapPin, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const profileImages = [
+    "/lovable-uploads/0ddc5395-b1db-4be8-b996-668ab74deb63.png",
+    "/lovable-uploads/c9f90667-aade-465e-82b3-26cd4a408b6f.png",
+    "/lovable-uploads/6589dcfe-6867-43f5-9664-58e4511b3c35.png",
+    "/lovable-uploads/8261518c-1509-4343-934d-887c1fb2e8ca.png",
+    "/lovable-uploads/b18f4ba4-80c7-496b-937b-cecb3bd12d2f.png",
+    "/lovable-uploads/3b7b64ab-00ab-4f56-ade4-0dee07b67324.png"
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === profileImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
     <section 
-      ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
+      className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4 py-20"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-accent/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-accent/5 rounded-full blur-3xl"
-        />
-      </div>
-
-      <motion.div 
-        style={{ opacity, scale, y }}
-        className="relative z-10 max-w-7xl mx-auto px-6 text-center"
-      >
-        {/* Main Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.h1 
-            className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Ande <span className="bg-gradient-accent bg-clip-text text-transparent">Mahendra</span>
-          </motion.h1>
-
-          <motion.p 
-            className="text-2xl md:text-3xl text-muted-foreground mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            AI & ML Engineer
-          </motion.p>
-
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Building intelligent solutions with cutting-edge AI technology.
-            Transforming ideas into innovative, scalable applications.
-          </motion.p>
-
-          {/* Contact Info Pills */}
+      <div className="container max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Profile Image */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            className="lg:w-1/3"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <a 
-              href="mailto:andemahendra26@gmail.com"
-              className="group flex items-center gap-2 px-6 py-3 bg-card/50 backdrop-blur-glass rounded-full border border-border hover:shadow-glass transition-all duration-300"
-            >
-              <Mail className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium">andemahendra26@gmail.com</span>
-            </a>
-            <a 
-              href="tel:9063064262"
-              className="group flex items-center gap-2 px-6 py-3 bg-card/50 backdrop-blur-glass rounded-full border border-border hover:shadow-glass transition-all duration-300"
-            >
-              <Phone className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium">+91 9063064262</span>
-            </a>
-            <div className="flex items-center gap-2 px-6 py-3 bg-card/50 backdrop-blur-glass rounded-full border border-border">
-              <MapPin className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium">Hyderabad, India</span>
+            <div className="relative">
+              <motion.div 
+                className="w-80 h-80 rounded-full overflow-hidden shadow-elegant mx-auto cursor-pointer group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                <motion.img
+                  src={profileImages[currentImageIndex]}
+                  alt="Ande Mahendra"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  onClick={handleImageClick}
+                  key={currentImageIndex}
+                  initial={{ scale: 1.1, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1 }}
+          {/* Content */}
+          <motion.div 
+            className="lg:w-2/3 text-center lg:text-left"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <Button 
-              size="lg"
-              className="bg-gradient-accent text-white px-8 py-6 text-lg rounded-full hover:shadow-hover transition-all duration-300 hover:scale-105"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            <motion.h1 
+              className="text-5xl lg:text-7xl font-bold text-foreground mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Let's Connect
-            </Button>
-          </motion.div>
-        </motion.div>
+              Ande Mahendra
+            </motion.h1>
+            <motion.h2 
+              className="text-2xl lg:text-3xl font-light text-muted-foreground mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              AI & Machine Learning Engineer
+            </motion.h2>
+            <motion.p 
+              className="text-lg text-muted-foreground mb-12 max-w-2xl leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              A highly motivated B.Tech Computer Science Engineering (AI & ML) student, passionate about 
+              contributing to innovative organizations and continuously developing technical skills through 
+              real-world challenges.
+            </motion.p>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-8 h-8 text-muted-foreground" />
+            {/* Contact Info */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 mb-12 justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              {[
+                { icon: Mail, text: "andemahendra26@gmail.com" },
+                { icon: Phone, text: "9063064262" },
+                { icon: MapPin, text: "Hyderabad, India" }
+              ].map((contact, index) => (
+                <motion.div 
+                  key={index}
+                  className="flex items-center gap-3 text-muted-foreground"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, x: 5 }}
+                >
+                  <contact.icon className="w-5 h-5" />
+                  <span>{contact.text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div 
+              className="flex justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.5 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  size="lg" 
+                  className="shadow-soft"
+                  onClick={() => window.open('https://www.linkedin.com/in/ande-mahendra-7a9420235/', '_blank')}
+                >
+                  Let's Connect
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
