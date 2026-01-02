@@ -1,189 +1,237 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Calendar, Award } from "lucide-react";
-import awsCert from "@/assets/logos/aws-cert.png";
-import ibmCert from "@/assets/logos/ibm-cert.png";
-import googleCloudCert from "@/assets/logos/google-cloud-cert.png";
-import oracleCert from "@/assets/logos/oracle-cert.png";
+import { Calendar, Award, ExternalLink } from "lucide-react";
+import eaLogo from "@/assets/logos/ea-logo.png";
+import ibmLogo from "@/assets/logos/ibm-logo.png";
+import tataLogo from "@/assets/logos/tata-logo.png";
+import linkedinLogo from "@/assets/logos/linkedin-logo.png";
+import deloitteLogo from "@/assets/logos/deloitte-logo.png";
+import bcgLogo from "@/assets/logos/bcg-logo.png";
+import accentureLogo from "@/assets/logos/accenture-logo.png";
+import oracleLogo from "@/assets/logos/oracle-logo.png";
+import infosysLogo from "@/assets/logos/infosys-logo.png";
+import quantiumLogo from "@/assets/logos/quantium-logo.png";
+import udemyLogo from "@/assets/logos/udemy-logo.png";
+import awsLogo from "@/assets/logos/aws-logo.png";
 
 const Certifications = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   const certifications = [
     {
-      title: "AWS Academy Graduate",
-      issuer: "Amazon Web Services",
-      date: "August 2024",
-      description: "AWS Academy Cloud Foundations - Foundational understanding of AWS Cloud services, infrastructure, and best practices",
-      skills: ["Cloud Computing", "AWS Services", "Security", "Cloud Architecture"],
-      logo: awsCert,
+      title: "Introduction to Artificial Intelligence",
+      issuer: "IBM SkillsBuild",
+      date: "September 2024",
+      type: "AI/ML",
+      logo: ibmLogo
     },
     {
-      title: "Oracle Cloud Infrastructure",
-      issuer: "Oracle",
-      date: "July 2024",
-      description: "Oracle Cloud Infrastructure 2024 Generative AI Certified Professional",
-      skills: ["OCI", "Generative AI", "Cloud Services", "AI/ML"],
-      logo: oracleCert,
+      title: "Software Engineering Job Simulation",
+      issuer: "Electronic Arts (FORAGE)",
+      date: "February 2025",
+      type: "Software Engineering",
+      logo: eaLogo
     },
     {
-      title: "Google Cloud Computing",
-      issuer: "Google Cloud",
-      date: "June 2024",
-      description: "Foundations of Cloud Computing through Google Cloud Skills Boost",
-      skills: ["GCP", "Cloud Architecture", "DevOps", "Cloud Storage"],
-      logo: googleCloudCert,
+      title: "Data Visualisation: Empowering Business with Effective Insights",
+      issuer: "TATA Group (FORAGE)",
+      date: "May 2025",
+      type: "Data Analytics",
+      logo: tataLogo
     },
     {
-      title: "IBM AI Developer",
-      issuer: "IBM",
-      date: "May 2024",
-      description: "Professional Certificate in AI Developer from IBM via Coursera",
-      skills: ["Artificial Intelligence", "Machine Learning", "Python", "AI Development"],
-      logo: ibmCert,
+      title: "Python Essential Training",
+      issuer: "LinkedIn Learning",
+      date: "May 2025",
+      type: "Programming",
+      logo: linkedinLogo
     },
+    {
+      title: "Product Management Job Simulation",
+      issuer: "Electronic Arts (FORAGE)",
+      date: "May 2025",
+      type: "Product Management",
+      logo: eaLogo
+    },
+    {
+      title: "Data Analytics Job Simulation",
+      issuer: "Deloitte (FORAGE)",
+      date: "May 2025",
+      type: "Data Analytics",
+      logo: deloitteLogo
+    },
+    {
+      title: "GenAI Job Simulation",
+      issuer: "BCG (FORAGE)",
+      date: "May 2025",
+      type: "AI/ML",
+      logo: bcgLogo
+    },
+    {
+      title: "Software Engineering Job Simulation",
+      issuer: "Accenture (FORAGE)",
+      date: "May 2025",
+      type: "Software Engineering",
+      logo: accentureLogo
+    },
+    {
+      title: "Prompt Engineering Using ChatGPT",
+      issuer: "LinkedIn Learning",
+      date: "May 2025",
+      type: "AI/ML",
+      logo: linkedinLogo
+    },
+    {
+      title: "Sales Strategy: Using AI and Automation to Sell More",
+      issuer: "LinkedIn Learning",
+      date: "May 2025",
+      type: "Business",
+      logo: linkedinLogo
+    },
+    {
+      title: "Vibe Coding Fundamentals: Tools and Best Practices",
+      issuer: "LinkedIn Learning",
+      date: "May 2025",
+      type: "Programming",
+      logo: linkedinLogo
+    },
+    {
+      title: "Natural Language Processing",
+      issuer: "Udemy",
+      date: "June 2025",
+      type: "AI/ML",
+      logo: udemyLogo
+    },
+    {
+      title: "GenAI-Powered Data Analytics Job Simulation",
+      issuer: "TATA Group (FORAGE)",
+      date: "June 2025",
+      type: "Data Analytics",
+      logo: tataLogo
+    },
+    {
+      title: "Generative AI: Working with Large Language Models",
+      issuer: "LinkedIn Learning",
+      date: "June 2025",
+      type: "AI/ML",
+      logo: linkedinLogo
+    },
+    {
+      title: "Data Analytics Job Simulation",
+      issuer: "Quantium (FORAGE)",
+      date: "June 2025",
+      type: "Data Analytics",
+      logo: quantiumLogo
+    },
+    {
+      title: "Prompt Engineering",
+      issuer: "Infosys",
+      date: "June 2025",
+      type: "AI/ML",
+      logo: infosysLogo
+    },
+    {
+      title: "AI Foundations Associate",
+      issuer: "Oracle University",
+      date: "June 2025",
+      type: "AI/ML",
+      logo: oracleLogo
+    },
+    {
+      title: "AI Aware",
+      issuer: "Intel & Digital India",
+      date: "June 2025",
+      type: "AI/ML",
+      logo: null
+    },
+    {
+      title: "Certified Machine Learning Specialty",
+      issuer: "AWS",
+      date: "August 2025",
+      type: "AI/ML",
+      logo: awsLogo
+    },
+    {
+      title: "Certified Artificial Intelligence Practitioner",
+      issuer: "AWS",
+      date: "August 2025",
+      type: "AI/ML",
+      logo: awsLogo
+    }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const
-      }
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case "AI/ML": return "bg-primary text-primary-foreground";
+      case "Data Analytics": return "bg-accent text-accent-foreground";
+      case "Software Engineering": return "bg-secondary text-secondary-foreground";
+      case "Programming": return "bg-muted text-muted-foreground";
+      case "Product Management": return "bg-primary/80 text-primary-foreground";
+      case "Business": return "bg-muted/80 text-foreground";
+      default: return "bg-secondary text-secondary-foreground";
     }
   };
 
   return (
-    <section 
-      id="certifications" 
-      className="py-32 relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(180deg, hsl(var(--grey-10)) 0%, hsl(var(--grey-5)) 100%)'
-      }}
-    >
-      {/* Background Decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 right-0 w-96 h-96 bg-gradient-radial opacity-20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-gradient-radial opacity-20 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <h2 
-            className="text-5xl lg:text-6xl font-bold mb-6"
-            style={{
-              background: 'linear-gradient(135deg, hsl(var(--grey-225)) 0%, hsl(var(--grey-175)) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              letterSpacing: '-0.02em'
-            }}
-          >
-            Professional Certifications
-          </h2>
-          <p className="text-xl" style={{ color: 'hsl(var(--grey-140))' }}>
-            Industry-recognized credentials in Cloud Computing and AI
+    <section id="certifications" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-foreground mb-4">Certifications & Achievements</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Professional certifications that validate my expertise across multiple domains
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {certifications.map((cert, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ 
-                y: -10,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <Card 
-                className="h-full backdrop-blur-sm transition-all duration-500 border-0 overflow-hidden group"
-                style={{
-                  background: 'hsl(var(--grey-0) / 0.8)',
-                  boxShadow: 'var(--shadow-soft)',
-                }}
-              >
-                {/* Logo Header */}
-                <div 
-                  className="h-32 flex items-center justify-center relative overflow-hidden"
-                  style={{ background: 'hsl(var(--grey-10))' }}
-                >
-                  <motion.img 
-                    src={cert.logo}
-                    alt={`${cert.issuer} logo`}
-                    className="h-20 w-20 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                    whileHover={{ scale: 1.1 }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
-                </div>
-
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <Award className="w-5 h-5" style={{ color: 'hsl(var(--grey-180))' }} />
-                    <CardTitle 
-                      className="text-2xl"
-                      style={{ color: 'hsl(var(--grey-220))' }}
-                    >
+            <Card key={index} className="shadow-soft hover:shadow-elegant transition-all duration-300 h-full">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-grow">
+                    <Badge className={`mb-3 ${getTypeColor(cert.type)}`}>
+                      {cert.type}
+                    </Badge>
+                    <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">
                       {cert.title}
-                    </CardTitle>
+                    </h3>
                   </div>
-                  <CardDescription className="flex items-center gap-2">
+                  {cert.logo && (
+                    <div className="flex-shrink-0 ml-3">
+                      <img 
+                        src={cert.logo} 
+                        alt={`${cert.issuer} logo`}
+                        className="w-12 h-12 object-contain grayscale opacity-70"
+                      />
+                    </div>
+                  )}
+                </div>
+                
+                <div className="flex-grow">
+                  <div className="flex items-center gap-2 text-primary font-medium mb-3">
+                    <Award className="w-4 h-4" />
+                    <span className="text-sm">{cert.issuer}</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
                     <Calendar className="w-4 h-4" />
-                    <span style={{ color: 'hsl(var(--grey-140))' }}>
-                      {cert.issuer} • {cert.date}
-                    </span>
-                  </CardDescription>
-                </CardHeader>
-
-                <CardContent className="space-y-6">
-                  <p 
-                    className="leading-relaxed"
-                    style={{ color: 'hsl(var(--grey-160))' }}
-                  >
-                    {cert.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((skill, skillIndex) => (
-                      <Badge 
-                        key={skillIndex} 
-                        variant="secondary"
-                        className="text-xs font-medium px-3 py-1"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
+                    <span>{cert.date}</span>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                </div>
+                
+                <div className="mt-auto">
+                  <button className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium">
+                    <ExternalLink className="w-4 h-4" />
+                    View Certificate
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
           ))}
-        </motion.div>
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground">
+            <span className="font-semibold">{certifications.length}</span> professional certifications completed
+          </p>
+        </div>
       </div>
     </section>
   );

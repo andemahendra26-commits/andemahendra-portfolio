@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
 
@@ -15,10 +15,6 @@ const Hero = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
 
   const handleImageClick = () => {
     setCurrentImageIndex((prevIndex) => 
@@ -28,172 +24,112 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20"
-      style={{ 
-        background: 'linear-gradient(180deg, hsl(var(--grey-5)) 0%, hsl(var(--grey-10)) 50%, hsl(var(--grey-15)) 100%)'
-      }}
+      className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4 py-20"
     >
-      {/* Ambient Background Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-1/4 w-96 h-96 bg-gradient-radial opacity-30 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-1/4 w-96 h-96 bg-gradient-radial opacity-30 rounded-full blur-3xl" />
-      </div>
-
-      <motion.div 
-        className="container max-w-7xl mx-auto relative z-10"
-        style={{ y, opacity, scale }}
-      >
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Profile Image with Glass Effect */}
+      <div className="container max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Profile Image */}
           <motion.div 
-            className="lg:w-2/5"
+            className="lg:w-1/3"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: [0.6, -0.05, 0.01, 0.99] }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative">
-              {/* Glow Effect */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-radial opacity-50 rounded-full blur-3xl"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              <motion.div 
-                className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden mx-auto cursor-pointer group"
-                style={{
-                  boxShadow: 'var(--shadow-elegant)',
-                  backdropFilter: 'var(--blur-glass)',
-                }}
+                className="w-80 h-80 rounded-full overflow-hidden shadow-elegant mx-auto cursor-pointer group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
               >
                 <motion.img
                   src={profileImages[currentImageIndex]}
-                  alt="Ande Mahendra - AI & ML Engineer"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  alt="Ande Mahendra"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   onClick={handleImageClick}
                   key={currentImageIndex}
-                  initial={{ scale: 1.2, opacity: 0 }}
+                  initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.7 }}
+                  transition={{ duration: 0.5 }}
                 />
-                
-                {/* Click Indicator */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-primary/80 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
-                    Click to change
-                  </div>
-                </div>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Content with Enhanced Typography */}
+          {/* Content */}
           <motion.div 
-            className="lg:w-3/5 text-center lg:text-left space-y-8"
+            className="lg:w-2/3 text-center lg:text-left"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: [0.6, -0.05, 0.01, 0.99], delay: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <motion.div
+            <motion.h1 
+              className="text-5xl lg:text-7xl font-bold text-foreground mb-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <motion.h1 
-                className="text-6xl lg:text-8xl font-bold mb-4"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(var(--grey-225)) 0%, hsl(var(--grey-175)) 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                Ande Mahendra
-              </motion.h1>
-            </motion.div>
-
+              Ande Mahendra
+            </motion.h1>
             <motion.h2 
-              className="text-3xl lg:text-4xl font-light tracking-wide"
-              style={{ color: 'hsl(var(--grey-150))' }}
+              className="text-2xl lg:text-3xl font-light text-muted-foreground mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               AI & Machine Learning Engineer
             </motion.h2>
-
             <motion.p 
-              className="text-lg lg:text-xl leading-relaxed max-w-3xl"
-              style={{ color: 'hsl(var(--grey-140))' }}
+              className="text-lg text-muted-foreground mb-12 max-w-2xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
               A highly motivated B.Tech Computer Science Engineering (AI & ML) student, passionate about 
               contributing to innovative organizations and continuously developing technical skills through 
-              real-world challenges. Selected for world's largest AI internship program by Viswam.AI.
+              real-world challenges.
             </motion.p>
 
-            {/* Contact Info with Glass Morphism */}
+            {/* Contact Info */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-6 mb-12 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
             >
               {[
-                { icon: Mail, text: "andemahendra26@gmail.com", label: "Email" },
-                { icon: Phone, text: "9063064262", label: "Phone" },
-                { icon: MapPin, text: "Hyderabad, India", label: "Location" }
+                { icon: Mail, text: "andemahendra26@gmail.com" },
+                { icon: Phone, text: "9063064262" },
+                { icon: MapPin, text: "Hyderabad, India" }
               ].map((contact, index) => (
                 <motion.div 
                   key={index}
-                  className="group flex items-center gap-3 px-4 py-3 rounded-2xl backdrop-blur-sm transition-all duration-300"
-                  style={{
-                    background: 'hsl(var(--grey-0) / 0.6)',
-                    border: '1px solid hsl(var(--grey-50) / 0.2)',
-                    boxShadow: 'var(--shadow-soft)',
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.3 + index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -5,
-                    boxShadow: 'var(--shadow-elegant)'
-                  }}
+                  className="flex items-center gap-3 text-muted-foreground"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, x: 5 }}
                 >
-                  <contact.icon className="w-5 h-5" style={{ color: 'hsl(var(--grey-180))' }} />
-                  <div className="flex flex-col">
-                    <span className="text-xs" style={{ color: 'hsl(var(--grey-120))' }}>{contact.label}</span>
-                    <span className="text-sm font-medium" style={{ color: 'hsl(var(--grey-200))' }}>{contact.text}</span>
-                  </div>
+                  <contact.icon className="w-5 h-5" />
+                  <span>{contact.text}</span>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Premium CTA Button */}
+            {/* CTA Buttons */}
             <motion.div 
               className="flex justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
+              transition={{ duration: 0.6, delay: 1.5 }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Button 
                   size="lg" 
-                  className="px-8 py-6 text-lg rounded-2xl font-semibold"
-                  style={{
-                    background: 'linear-gradient(135deg, hsl(var(--grey-200)) 0%, hsl(var(--grey-225)) 100%)',
-                    boxShadow: '0 10px 40px -10px hsl(var(--grey-225) / 0.4)',
-                  }}
+                  className="shadow-soft"
                   onClick={() => window.open('https://www.linkedin.com/in/ande-mahendra-7a9420235/', '_blank')}
                 >
                   Let's Connect
@@ -202,7 +138,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
