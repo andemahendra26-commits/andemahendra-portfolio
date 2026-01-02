@@ -2,10 +2,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
-import technohacksLogo from "@/assets/logos/technohacks-logo.png";
-import developersArenaLogo from "@/assets/logos/developers-arena-logo.png";
-import viswamLogo from "@/assets/logos/viswam-logo.svg";
-import switch2itjobsLogo from "@/assets/logos/switch2itjobs-logo.svg";
+import technohacksLogo from "@/assets/logos/technohacks-logo.jpg";
+import developersArenaLogo from "@/assets/logos/developers-arena-logo.jpg";
+import viswamLogo from "@/assets/logos/viswam-logo.jpg";
+import switch2itjobsLogo from "@/assets/logos/switch2itjobs-logo.jpg";
 
 const Experience = () => {
 
