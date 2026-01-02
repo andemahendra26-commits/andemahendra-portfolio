@@ -8,14 +8,14 @@ const Experience = () => {
     {
       title: "Prompt Engineer Intern",
       company: "TechnoHacks EduTech",
-      duration: "January 2025 - Present",
+      duration: "November 2025 - December 2025",
       type: "Internship",
       description: "Working on AI prompt engineering and optimization at an ISO certified tech company. Developing effective prompts for various AI models, analyzing prompt performance metrics, and creating documentation for prompt best practices. Contributing to AI-powered solutions while gaining hands-on experience with cutting-edge language models and practical AI applications."
     },
     {
       title: "Data Science Intern",
       company: "The Developers Arena",
-      duration: "December 2024 - Present",
+      duration: "November 2025 - December 2025",
       type: "Internship",
       description: "Working on real-world data science projects under experienced mentors. Applying machine learning techniques for data analysis, building predictive models, and extracting actionable insights from datasets. Collaborating in teams using Agile methodologies while developing problem-solving skills through practical, industry-relevant challenges."
     },
@@ -74,15 +74,11 @@ const Experience = () => {
               <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row gap-6">
-                    <motion.div 
-                      className="flex-shrink-0"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
+                    <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
                         <Briefcase className="w-8 h-8 text-primary-foreground" />
                       </div>
-                    </motion.div>
+                    </div>
                     
                     <div className="flex-grow">
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
