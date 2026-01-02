@@ -6,6 +6,20 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: "Prompt Engineer Intern",
+      company: "TechnoHacks EduTech",
+      duration: "January 2025 - Present",
+      type: "Internship",
+      description: "Working on AI prompt engineering and optimization at an ISO certified tech company. Developing effective prompts for various AI models, analyzing prompt performance metrics, and creating documentation for prompt best practices. Contributing to AI-powered solutions while gaining hands-on experience with cutting-edge language models and practical AI applications."
+    },
+    {
+      title: "Data Science Intern",
+      company: "The Developers Arena",
+      duration: "December 2024 - Present",
+      type: "Internship",
+      description: "Working on real-world data science projects under experienced mentors. Applying machine learning techniques for data analysis, building predictive models, and extracting actionable insights from datasets. Collaborating in teams using Agile methodologies while developing problem-solving skills through practical, industry-relevant challenges."
+    },
+    {
       title: "AI Developer Intern",
       company: "Viswam.AI – Summer of AI 2025",
       duration: "August 2025 - September 2025",
