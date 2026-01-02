@@ -1,6 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Briefcase, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+
+import technohacksLogo from "@/assets/logos/technohacks-logo.png";
+import developersArenaLogo from "@/assets/logos/developers-arena-logo.png";
+import viswamLogo from "@/assets/logos/viswam-logo.svg";
+import switch2itjobsLogo from "@/assets/logos/switch2itjobs-logo.svg";
 
 const Experience = () => {
 
@@ -10,6 +15,7 @@ const Experience = () => {
       company: "TechnoHacks EduTech",
       duration: "November 2025 - December 2025",
       type: "Internship",
+      logo: technohacksLogo,
       description: "Working on AI prompt engineering and optimization at an ISO certified tech company. Developing effective prompts for various AI models, analyzing prompt performance metrics, and creating documentation for prompt best practices. Contributing to AI-powered solutions while gaining hands-on experience with cutting-edge language models and practical AI applications."
     },
     {
@@ -17,6 +23,7 @@ const Experience = () => {
       company: "The Developers Arena",
       duration: "November 2025 - December 2025",
       type: "Internship",
+      logo: developersArenaLogo,
       description: "Working on real-world data science projects under experienced mentors. Applying machine learning techniques for data analysis, building predictive models, and extracting actionable insights from datasets. Collaborating in teams using Agile methodologies while developing problem-solving skills through practical, industry-relevant challenges."
     },
     {
@@ -24,6 +31,7 @@ const Experience = () => {
       company: "Viswam.AI – Summer of AI 2025",
       duration: "August 2025 - September 2025",
       type: "Internship",
+      logo: viswamLogo,
       description: "Selected for the world's largest AI internship program, a collaborative initiative by Viswam.AI, Swecha, IIIT Hyderabad, Meta, TASK, and HYSEA. Completed a 4-week intensive program focused on practical AI software development, model fine-tuning, and open-source projects. Gained hands-on experience in Python for AI applications, data curation for culturally relevant AI models, and contributed to the foundational Telugu LLM project."
     },
     {
@@ -31,6 +39,7 @@ const Experience = () => {
       company: "Switch2ITjobs.com",
       duration: "June 2022 - September 2022",
       type: "Full-time",
+      logo: switch2itjobsLogo,
       description: "Managed web operations and maintained the company's digital presence."
     },
     {
@@ -38,6 +47,7 @@ const Experience = () => {
       company: "Switch2ITjobs.com",
       duration: "April 2022 - June 2022",
       type: "Full-time",
+      logo: switch2itjobsLogo,
       description: "Led marketing initiatives and strategic campaigns to drive business growth."
     }
   ];
@@ -75,8 +85,8 @@ const Experience = () => {
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row gap-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Briefcase className="w-8 h-8 text-primary-foreground" />
+                      <div className="w-16 h-16 rounded-lg overflow-hidden bg-background flex items-center justify-center border border-border">
+                        <img src={exp.logo} alt={`${exp.company} logo`} className="w-14 h-14 object-contain" />
                       </div>
                     </div>
                     
