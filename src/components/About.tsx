@@ -196,27 +196,6 @@ const About = () => {
               </Card>
             </motion.div>
           </div>
-
-          {/* Declaration */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Card className="shadow-soft mt-12">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-xl font-semibold text-foreground mb-4">Declaration</h3>
-                <p className="text-muted-foreground italic">
-                  I hereby declare that the information provided above is true to the best of my knowledge and belief.
-                </p>
-                <div className="mt-6">
-                  <p className="text-foreground font-medium">Ande Mahendra</p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
         </div>
       </motion.div>
     </section>
