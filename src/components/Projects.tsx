@@ -1,12 +1,23 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ShoppingCart, Smartphone, Bot } from "lucide-react";
+import { ExternalLink, Github, ShoppingCart, Smartphone, Bot, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
+import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
 
 const Projects = () => {
 
   const projects = [
+    {
+      title: "Alfredo.AI - RAG Chatbot",
+      type: "AI Application",
+      icon: MessageSquare,
+      description: "A Retrieval-Augmented Generation (RAG) based AI Chatbot that allows users to upload documents and ask questions in natural language, receiving accurate, context-aware answers grounded only in their data. Solves AI hallucinations by retrieving relevant information before generating responses.",
+      scope: "Built a smart document-aware chatbot combining semantic search and LLMs with clean FastAPI backend, vector embeddings, and scalable retrieval pipeline",
+      technologies: ["FastAPI", "Python", "RAG", "Vector Embeddings", "LLM", "NLP", "OpenAI API"],
+      category: "AI Development",
+      image: alfredoRagImage
+    },
     {
       title: "E-Commerce Website (Clothing)",
       type: "Website",
