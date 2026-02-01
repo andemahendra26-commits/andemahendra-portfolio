@@ -17,7 +17,7 @@ const Experience = () => {
       duration: "January 2026 - Present",
       type: "Full-time",
       logo: rovixAiLogo,
-      description: "Turning thoughts into powerful AI conversations. Crafting smart prompts, optimizing AI behavior, and bridging the gap between human intent and machine intelligence."
+      description: "At Rovix AI, I work on shaping how humans interact with artificial intelligence. As a Prompt Engineer, my role focuses on designing, testing, and refining prompts that help AI models think better, respond smarter, and perform consistently in real-world use cases. I collaborate closely with product and development teams to translate business goals into effective AI instructions. From building structured prompt systems to optimizing responses for accuracy, tone, and performance, I ensure that AI outputs are not just correct — but useful, scalable, and production-ready."
     },
     {
       title: "Prompt Engineer Intern",
