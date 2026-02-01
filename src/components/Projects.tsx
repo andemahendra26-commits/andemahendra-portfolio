@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ShoppingCart, Smartphone, Bot, MessageSquare } from "lucide-react";
+import { ShoppingCart, Smartphone, Bot, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
 
@@ -192,47 +191,6 @@ const Projects = () => {
                     </div>
                   </motion.div>
                   
-                  <motion.div 
-                    className="flex gap-3 pt-4 mt-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    viewport={{ once: true }}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1"
-                    >
-                      <Button variant="outline" size="sm" className="flex items-center gap-2 w-full justify-center">
-                        <Github className="w-4 h-4" />
-                        View Code
-                      </Button>
-                    </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1"
-                    >
-                      <Button 
-                        size="sm" 
-                        className="flex items-center gap-2 w-full justify-center"
-                        asChild={!!project.demoUrl}
-                      >
-                        {project.demoUrl ? (
-                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4" />
-                            Try Alfredo
-                          </a>
-                        ) : (
-                          <>
-                            <ExternalLink className="w-4 h-4" />
-                            Live Demo
-                          </>
-                        )}
-                      </Button>
-                    </motion.div>
-                  </motion.div>
                 </CardContent>
               </Card>
             </motion.div>
