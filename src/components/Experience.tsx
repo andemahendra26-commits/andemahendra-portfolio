@@ -6,10 +6,19 @@ import technohacksLogo from "@/assets/logos/technohacks-logo.jpg";
 import developersArenaLogo from "@/assets/logos/developers-arena-logo.jpg";
 import viswamLogo from "@/assets/logos/viswam-logo.jpg";
 import switch2itjobsLogo from "@/assets/logos/switch2itjobs-logo.jpg";
+import rovixAiLogo from "@/assets/logos/rovix-ai-logo.png";
 
 const Experience = () => {
 
   const experiences = [
+    {
+      title: "Prompt Engineer",
+      company: "Rovix AI",
+      duration: "January 2026 - Present",
+      type: "Full-time",
+      logo: rovixAiLogo,
+      description: "Turning thoughts into powerful AI conversations. Crafting smart prompts, optimizing AI behavior, and bridging the gap between human intent and machine intelligence."
+    },
     {
       title: "Prompt Engineer Intern",
       company: "TechnoHacks EduTech",
