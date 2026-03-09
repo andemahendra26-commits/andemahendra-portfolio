@@ -1,129 +1,203 @@
-import { Badge } from "@/components/ui/badge";
-import { Globe, BookOpen, Music, Shield, Cpu, Activity } from "lucide-react";
-import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Globe, BookOpen, Music } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
+
   const languages = [
-    { name: "ENGLISH", level: "C2_FLUID" },
-    { name: "HINDI", level: "NATIVE" },
-    { name: "TELUGU", level: "NATIVE" }
+    { name: "English", level: "Fluent" },
+    { name: "Hindi", level: "Fluent" },
+    { name: "Telugu", level: "Fluent" }
   ];
 
   const hobbies = [
-    { name: "Mythology_Analytics", icon: BookOpen },
-    { name: "Knowledge_Feeds", icon: Activity },
-    { name: "Sci_Fi_Simulation", icon: Globe }
+    { name: "Reading Mythology Books", icon: BookOpen },
+    { name: "Listening to informative podcasts", icon: Music },
+    { name: "Watching Sci-Fi movies", icon: Globe }
+  ];
+
+  const activities = [
+    "Event Organizing: Organizing college fests, technical symposiums, or cultural events",
+    "Social Services: Joining government philanthropy events and donation camps"
   ];
 
   return (
-    <section id="about" className="py-32 relative bg-background overflow-hidden border-t border-primary/5">
-      <div className="container mx-auto px-4 relative z-10">
+    <section
+      ref={sectionRef}
+      id="about"
+      className="py-20 bg-muted/30"
+    >
+      <motion.div
+        className="container mx-auto px-4"
+        style={{ y }}
+      >
         <motion.div
-          className="max-w-4xl mx-auto mb-24"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <span className="text-hud text-xs">Unit_Profile_v1.0</span>
-            <div className="h-[1px] w-24 bg-primary/20" />
-            <Shield className="w-5 h-5 text-primary" />
-            <div className="h-[1px] w-24 bg-primary/20" />
-          </div>
-
-          <h2 className="text-5xl md:text-7xl font-black text-center mb-12">BIOMETRIC_DATA</h2>
-
-          <div className="stark-card p-12 relative group bg-primary/5">
-            <div className="absolute top-4 right-8 font-mono text-[8px] opacity-20">ENCRYPTION: AES-X</div>
-            <h3 className="text-hud text-sm font-bold mb-8">MISSION_STATEMENT</h3>
-            <p className="text-xl md:text-2xl text-muted-foreground font-mono leading-relaxed border-l-4 border-primary pl-8 italic">
-              "NEUROMORPHIC ENGINEER FOCUSED ON BRIDGING THE GAP BETWEEN HUMAN INTUITION AND MACHINE INTELLIGENCE. DRIVEN BY THE ARCHITECTURE OF TOMORROW."
-            </p>
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Languages HUD */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="stark-card p-8"
-          >
-            <div className="text-hud text-[10px] mb-6 flex justify-between items-center">
-              <span>LEXICON_MODULE</span>
-              <Cpu className="w-4 h-4 opacity-40" />
-            </div>
-            <div className="space-y-6">
-              {languages.map((lang, index) => (
-                <div key={index} className="space-y-2 group">
-                  <div className="flex justify-between items-center text-[11px] font-mono">
-                    <span className="text-white font-bold">{lang.name}</span>
-                    <span className="text-primary">{lang.level}</span>
-                  </div>
-                  <div className="h-[1px] w-full bg-primary/10 group-hover:bg-primary/40 transition-all" />
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Interests HUD */}
-          <motion.div
+          <motion.h2
+            className="text-4xl font-bold text-foreground mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="stark-card p-8"
           >
-            <div className="text-hud text-[10px] mb-6 flex justify-between items-center">
-              <span>INTEREST_NODES</span>
-              <Activity className="w-4 h-4 opacity-40" />
-            </div>
-            <div className="space-y-6">
-              {hobbies.map((hobby, index) => (
-                <div key={index} className="flex items-center gap-4 group">
-                  <div className="w-8 h-8 rounded-sm bg-primary/5 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-all">
-                    <hobby.icon className="w-4 h-4 text-primary" />
-                  </div>
-                  <span className="text-[11px] font-mono text-muted-foreground group-hover:text-white transition-colors">
-                    {hobby.name}
-                  </span>
-                </div>
-              ))}
-            </div>
+            About Me
+          </motion.h2>
+          <motion.p
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Get to know more about my background, interests, and what drives me
+          </motion.p>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto">
+          {/* Objective Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Card className="shadow-soft mb-12">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold text-foreground mb-6">Professional Objective</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  A highly motivated and passionate B.Tech Computer Science Engineering (Artificial Intelligence & Machine Learning)
+                  student, nearing graduation, with a strong desire to begin my professional journey. Eager to contribute to an
+                  innovative organization where I can apply and enhance my technical knowledge, gain hands-on experience, and
+                  continuously develop my skills. I am driven to work with dedication, learn from real-world challenges, and grow
+                  into a skilled and reliable professional.
+                </p>
+              </CardContent>
+            </Card>
           </motion.div>
 
-          {/* Logistics HUD */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="stark-card p-8"
-          >
-            <div className="text-hud text-[10px] mb-6 flex justify-between items-center">
-              <span>EXTRACURRICULAR_LOGS</span>
-              <Shield className="w-4 h-4 opacity-40" />
-            </div>
-            <div className="space-y-6">
-              {[
-                "EVENT_ORG_SYMPOSIUM",
-                "SOCIAL_SERVICE_UNIT#42",
-                "PHILANTHROPIC_OPS_ACTIVE"
-              ].map((activity, index) => (
-                <div key={index} className="flex items-center gap-4 group">
-                  <div className="w-2 h-2 bg-primary/20 group-hover:bg-primary transition-all animate-pulse" />
-                  <span className="text-[11px] font-mono text-muted-foreground group-hover:text-white transition-colors">
-                    {activity}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Languages */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <motion.div
+                      className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Globe className="w-5 h-5 text-primary-foreground" />
+                    </motion.div>
+                    <h3 className="text-xl font-semibold text-foreground">Languages</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {languages.map((lang, index) => (
+                      <motion.div
+                        key={index}
+                        className="flex justify-between items-center"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <span className="text-foreground font-medium">{lang.name}</span>
+                        <span className="text-sm text-muted-foreground bg-accent px-2 py-1 rounded">
+                          {lang.level}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Hobbies & Interests */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-6">Hobbies & Interests</h3>
+                  <div className="space-y-4">
+                    {hobbies.map((hobby, index) => (
+                      <motion.div
+                        key={index}
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <hobby.icon className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <span className="text-muted-foreground">{hobby.name}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Extracurricular Activities */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-6">Extracurricular Activities</h3>
+                  <div className="space-y-4">
+                    {activities.map((activity, index) => (
+                      <motion.div
+                        key={index}
+                        className="text-muted-foreground"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span>{activity}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,147 +1,198 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ShoppingCart, Smartphone, Bot, MessageSquare, ExternalLink, Cpu, Database, Layout } from "lucide-react";
+import { ShoppingCart, Smartphone, Bot, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
 
 const Projects = () => {
+
   const projects = [
     {
-      id: "PROJ-001",
       title: "Alfredo.AI - RAG Chatbot",
-      type: "AI_CORE",
+      type: "AI Application",
       icon: MessageSquare,
-      description: "NEURAL NETWORK INTERFACE FOR DOCUMENT-AWARE CONVERSATIONAL AI. COMBINES SEMANTIC SEARCH WITH LARGE LANGUAGE MODELS.",
-      technologies: ["FASTAPI", "PYTHON", "RAG", "OPENAI"],
-      category: "AI_DEV",
+      description: "A Retrieval-Augmented Generation (RAG) based AI Chatbot that allows users to upload documents and ask questions in natural language, receiving accurate, context-aware answers grounded only in their data. Solves AI hallucinations by retrieving relevant information before generating responses.",
+      scope: "Built a smart document-aware chatbot combining semantic search and LLMs with clean FastAPI backend, vector embeddings, and scalable retrieval pipeline",
+      technologies: ["FastAPI", "Python", "RAG", "Vector Embeddings", "LLM", "NLP", "OpenAI API"],
+      category: "AI Development",
       image: alfredoRagImage
     },
     {
-      id: "PROJ-002",
-      title: "STARK_COMMERCE",
-      type: "WEB_INTERFACE",
+      title: "E-Commerce Website (Clothing)",
+      type: "Website",
       icon: ShoppingCart,
-      description: "HIGH-CONVERSION E-COMMERCE ENGINE WITH INTEGRATED ANALYTICS PIPELINE AND SCALABLE PRODUCT ARCHITECTURE.",
-      technologies: ["WORDPRESS", "JDBC", "MYSQL"],
-      category: "WEB_DEV",
+      description: "A fully functional clothing e-commerce website that allows users to browse, search, and purchase fashion products online. Replicates key features of modern online retail platforms with a smooth, user-friendly shopping experience.",
+      scope: "Developed a working website which showcase all types of clothes based on categories",
+      technologies: ["WordPress", "JDBC (Java Database Connectivity)"],
+      category: "Web Development",
       image: "/lovable-uploads/4e5746ac-e24a-4692-9807-48eb78a52a97.png"
     },
     {
-      id: "PROJ-003",
-      title: "APPAREL_OS",
-      type: "MOBILE_SYSTEM",
+      title: "E-Commerce Application (Clothing)",
+      type: "Application",
       icon: Smartphone,
-      description: "CENTRALIZED MOBILE APPLICATION FOR CROSS-PLATFORM APPAREL MANAGEMENT AND CUSTOMER EXPERIENCE OPTIMIZATION.",
-      technologies: ["PYTHON", "MONGODB", "WINDOWS"],
-      category: "APP_DEV",
+      description: "An Online Apparel Shopping Application designed to enhance customer experience in today's fast-growing e-commerce world. Based on the Engel-Kollat-Blackwell (EKB) Model, analyzing consumer decision-making patterns for online clothing purchases.",
+      scope: "Defines comprehensive functionality and boundaries with potential for future development",
+      technologies: ["Python", "MongoDB", "Windows Platform"],
+      category: "Application Development",
       image: "/lovable-uploads/5c569caa-9b04-4336-9ab6-2189d9382fb8.png"
     },
     {
-      id: "PROJ-004",
-      title: "ALFREDO_AGENT_X",
-      type: "AUTONOMOUS_AGENT",
+      title: "Alfredo AI Agent",
+      type: "AI Agent",
       icon: Bot,
-      description: "MULTI-MODEL AI AGENT TRAINED ON CUSTOM DATASETS FOR DOMAIN-SPECIFIC PROBLEM SOLVING AND AUTOMATION.",
-      technologies: ["AGENTX", "LLAMA", "GROK", "DEEPSEEK"],
-      category: "AI_DEV",
+      description: "A custom-trained AI personal assistant built using AgentX.so platform. Alfredo is designed to provide intelligent responses and assistance across various domains, integrating multiple AI models for enhanced performance and versatility.",
+      scope: "Developed and trained a personalized AI agent with multi-model integration for comprehensive AI assistance",
+      technologies: ["AgentX.so", "OpenAI API", "Llama", "Anthropic", "Grok", "DeepSeek"],
+      category: "AI Development",
       image: "/lovable-uploads/c113e111-f5c7-4ad8-9df4-31d2d382bcc7.png",
       demoUrl: "https://app.agentx.so/shared-chat/?agent=688a1e4a42b87b91d3bab664"
     }
   ];
 
   return (
-    <section id="projects" className="py-32 relative bg-background overflow-hidden">
-      {/* HUD Background Decorations */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform origin-top translate-x-1/2" />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section
+      id="projects"
+      className="py-20 bg-muted/30 relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4">
         <motion.div
-          className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="w-8 h-[1px] bg-primary" />
-              <span className="text-hud text-xs">Project_Schematics_Archive</span>
-            </div>
-            <h2 className="text-5xl md:text-7xl font-black mb-6">SELECTED_WORKS</h2>
-            <p className="text-xl text-muted-foreground font-mono">
-              ENGINEERING INTELLIGNCE THROUGH CODE. ACCESSING PROJECT_LOGS...
-            </p>
-          </div>
-          <div className="pb-2">
-            <div className="text-hud text-[10px] text-right mb-2">DB_CONNECTED</div>
-            <div className="flex gap-2">
-              <div className="w-12 h-[2px] bg-primary" />
-              <div className="w-4 h-[2px] bg-primary/30" />
-            </div>
-          </div>
+          <motion.h2
+            className="text-4xl font-bold text-foreground mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Featured Projects
+          </motion.h2>
+          <motion.p
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Showcasing my technical expertise through real-world applications
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              whileHover={{
+                y: -8,
+                transition: { duration: 0.3 }
+              }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
               viewport={{ once: true }}
-              className="stark-card group cursor-crosshair"
+              className="h-full"
             >
-              {/* Card Header HUD */}
-              <div className="p-4 border-b border-white/5 flex justify-between items-center bg-white/5">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                  <span className="text-hud text-[10px] font-bold">{project.id}</span>
-                </div>
-                <span className="text-hud text-[10px] opacity-40">{project.type}</span>
-              </div>
+              <Card className="shadow-soft hover:shadow-elegant transition-all duration-500 h-full backdrop-blur-sm group">
+                <CardHeader className="pb-4">
+                  <motion.div
+                    className="flex items-start justify-between"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <motion.div
+                        className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <project.icon className="w-6 h-6 text-primary-foreground" />
+                      </motion.div>
+                      <div>
+                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
+                        <Badge variant="secondary" className="mt-1 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                          {project.category}
+                        </Badge>
+                      </div>
+                    </div>
+                  </motion.div>
+                </CardHeader>
 
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80" />
+                <CardContent className="space-y-4 flex flex-col h-full">
+                  {project.image && (
+                    <motion.div
+                      className="w-full h-48 rounded-lg overflow-hidden group-hover:shadow-lg transition-shadow duration-300"
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </motion.div>
+                  )}
+                  <motion.p
+                    className="text-muted-foreground leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    {project.description}
+                  </motion.p>
 
-                {/* Tech Badges on Image */}
-                <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech, idx) => (
-                    <span key={idx} className="text-[9px] font-mono bg-primary text-background px-2 py-0.5 font-bold">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                  <motion.div
+                    className="space-y-3 flex-grow"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">Project Scope:</h4>
+                      <p className="text-sm text-muted-foreground">{project.scope}</p>
+                    </div>
 
-              <div className="p-8 space-y-6">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-2xl font-black group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <project.icon className="w-6 h-6 text-primary/40 group-hover:text-primary transition-colors shrink-0" />
-                </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">Technologies Used:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <motion.div
+                            key={techIndex}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{ scale: 1.1 }}
+                            transition={{
+                              duration: 0.3,
+                              delay: techIndex * 0.05,
+                              ease: "easeOut"
+                            }}
+                            viewport={{ once: true }}
+                          >
+                            <Badge variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
 
-                <p className="text-muted-foreground font-mono text-xs leading-relaxed border-l-2 border-primary/20 pl-4">
-                  {project.description}
-                </p>
-
-                <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                  <div className="text-[10px] font-mono text-primary/40">
-                    CAT: {project.category}
-                  </div>
-                  <button className="flex items-center gap-2 text-hud text-[10px] font-bold text-primary group-hover:glow-primary transition-all">
-                    INIT_HANDSHAKE
-                    <ExternalLink className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Decorative Scan Line */}
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-primary/30 transform translate-y-[-100%] group-hover:translate-y-[600px] transition-transform duration-[2000ms] linear" />
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
