@@ -1,12 +1,12 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Education = () => {
-
   const educationData = [
     {
-      degree: "B.Tech in Computer Science Engineering (AI & ML)",
-      institution: "Siddhartha Institute of Engineering and Technology",
+      degree: "B.Tech in CS Engineering (AI & ML)",
+      institution: "SIET Hyderabad",
       location: "Hyderabad",
       duration: "May 2022 – May 2026",
       grade: "CGPA: 7.0",
@@ -16,7 +16,7 @@ const Education = () => {
       degree: "Intermediate (Class 12)",
       institution: "Sri Gayatri Junior College",
       location: "RK Puram, Hyderabad",
-      duration: "March 2019 – February 2021",
+      duration: "2019 – 2021",
       grade: "Percentage: 63%",
       type: "Higher Secondary"
     },
@@ -24,71 +24,67 @@ const Education = () => {
       degree: "SSC (Class 10)",
       institution: "Nagarjuna Model School",
       location: "Hasthinapuram, Hyderabad",
-      duration: "February 2018 – March 2019",
+      duration: "2018 – 2019",
       grade: "Percentage: 92%",
       type: "Secondary"
     }
   ];
 
   return (
-    <section 
-      id="education" 
-      className="py-20 bg-background"
+    <section
+      id="education"
+      className="py-32 bg-background relative"
     >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Education</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My academic journey and educational achievements
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="max-w-4xl mb-24"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Badge variant="outline" className="mb-4">Academic Foundation</Badge>
+          <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-gradient text-left">Education</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed text-left">
+            Foundational knowledge in Computer Science and specialized training in AI/ML mechanisms.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {educationData.map((edu, index) => (
-            <Card key={index} className="shadow-soft hover:shadow-elegant transition-all duration-300">
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-primary-foreground" />
-                    </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="glass-card p-10 flex flex-col group h-full"
+            >
+              <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center mb-8 shadow-soft group-hover:scale-110 transition-transform duration-500">
+                <GraduationCap className="w-8 h-8" />
+              </div>
+
+              <div className="flex-grow space-y-4">
+                <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors">{edu.degree}</h3>
+                <p className="text-lg font-medium text-foreground/80">{edu.institution}</p>
+
+                <div className="space-y-2 pt-4 border-t border-foreground/5">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="w-4 h-4" />
+                    <span>{edu.duration}</span>
                   </div>
-                  
-                  <div className="flex-grow">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-foreground mb-2">
-                          {edu.degree}
-                        </h3>
-                        <h4 className="text-xl text-primary font-medium mb-2">
-                          {edu.institution}
-                        </h4>
-                      </div>
-                      <div className="lg:text-right">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent text-accent-foreground">
-                          {edu.type}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-col sm:flex-row gap-4 text-muted-foreground mb-4">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>{edu.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{edu.location}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="text-lg font-medium text-primary">
-                      {edu.grade}
-                    </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
+                    <span>{edu.location}</span>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-foreground/5 flex items-center justify-between">
+                <div className="text-xl font-bold text-gradient">{edu.grade}</div>
+                <Badge variant="secondary" className="bg-foreground/5">{edu.type}</Badge>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

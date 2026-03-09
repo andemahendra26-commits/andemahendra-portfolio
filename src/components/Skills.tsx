@@ -1,187 +1,133 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Brain, 
-  Code, 
-  Wrench, 
-  Globe, 
-  Database, 
-  Users, 
-  Clock, 
-  MessageCircle, 
+import {
+  Brain,
+  Code,
+  Globe,
+  Database,
+  Users,
+  Clock,
+  MessageCircle,
   Lightbulb,
-  Target 
+  Target
 } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
 
   const skillCategories = [
     {
       title: "Artificial Intelligence",
       icon: Brain,
       skills: ["Prompt Engineering", "RAGs", "LLMs", "NLP"],
-      color: "bg-primary"
+      desc: "Specializing in document-aware intelligence and scalable model deployment."
     },
     {
-      title: "Programming Languages",
+      title: "Programming",
       icon: Code,
-      skills: ["C", "OOPS Concepts", "Java", "Python"],
-      color: "bg-accent"
+      skills: ["C", "OOPS", "Java", "Python"],
+      desc: "Strong foundation in data structures and object-oriented principles."
     },
     {
-      title: "Tools & IDEs",
-      icon: Wrench,
-      skills: ["Visual Studio", "Notepad++"],
-      color: "bg-muted"
-    },
-    {
-      title: "Web Development",
+      title: "Web Technologies",
       icon: Globe,
-      skills: ["HTML", "CSS", "JavaScript"],
-      color: "bg-secondary"
+      skills: ["HTML", "CSS", "JavaScript", "FastAPI"],
+      desc: "Crafting performant backends and interactive user interfaces."
     },
     {
-      title: "Database Management",
+      title: "Data Management",
       icon: Database,
-      skills: ["SQL", "MongoDB"],
-      color: "bg-primary/80"
+      skills: ["SQL", "MongoDB", "Vector DBs"],
+      desc: "Expertise in both relational and high-performance vector storage."
     }
   ];
 
   const softSkills = [
     { name: "Problem-solving", icon: Lightbulb },
-    { name: "Team collaboration", icon: Users },
-    { name: "Time management", icon: Clock },
-    { name: "Communication skills", icon: MessageCircle },
-    { name: "Quick learner", icon: Target }
+    { name: "Teamwork", icon: Users },
+    { name: "Time Management", icon: Clock },
+    { name: "Communication", icon: MessageCircle },
+    { name: "Research", icon: Target }
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="skills" 
-      className="py-20 bg-background"
+      id="skills"
+      className="py-32 relative overflow-hidden"
     >
-      <motion.div 
-        className="container mx-auto px-4"
-        style={{ y }}
-      >
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="max-w-4xl mb-24"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-foreground mb-4">Skills & Expertise</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Technical competencies and soft skills that drive my professional growth
+          <Badge variant="outline" className="mb-4">Toolbox</Badge>
+          <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-gradient">Skills & Expertise</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            A comprehensive suite of technical proficiencies tailored for the modern AI and software landscape.
           </p>
         </motion.div>
 
-        {/* Technical Skills */}
-        <div className="mb-16">
-          <motion.h3 
-            className="text-2xl font-semibold text-foreground mb-8 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Technical Skills
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {skillCategories.map((category, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <motion.div 
-                        className={`w-10 h-10 ${category.color} rounded-lg flex items-center justify-center`}
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 max-w-6xl mx-auto">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="glass-card p-10 group"
+            >
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500 shrink-0">
+                  <category.icon className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">{category.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{category.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <Badge
+                        key={skillIndex}
+                        variant="secondary"
+                        className="bg-foreground/5 hover:bg-foreground hover:text-background transition-colors"
                       >
-                        <category.icon className="w-5 h-5 text-white" />
-                      </motion.div>
-                      <h4 className="text-lg font-semibold text-foreground">{category.title}</h4>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skillIndex}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                          viewport={{ once: true }}
-                        >
-                          <Badge variant="secondary" className="text-sm">
-                            {skill}
-                          </Badge>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Soft Skills */}
-        <div>
-          <motion.h3 
-            className="text-2xl font-semibold text-foreground mb-8 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Soft Skills
-          </motion.h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+        <motion.div
+          className="glass-card p-12 max-w-6xl mx-auto"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold mb-12 text-center text-gradient uppercase tracking-widest">Interpersonal Skills</h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             {softSkills.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ scale: 1.1, y: -5 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
-                  <CardContent className="p-4 text-center">
-                    <motion.div
-                      whileHover={{ rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <skill.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                    </motion.div>
-                    <p className="text-sm font-medium text-foreground">{skill.name}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <div key={index} className="flex flex-col items-center gap-4 group text-center">
+                <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500 shadow-soft">
+                  <skill.icon className="w-6 h-6" />
+                </div>
+                <span className="text-sm font-bold uppercase tracking-tighter text-muted-foreground group-hover:text-foreground transition-colors">
+                  {skill.name}
+                </span>
+              </div>
             ))}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };

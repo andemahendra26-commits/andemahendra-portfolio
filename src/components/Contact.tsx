@@ -1,6 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const contactInfo = [
@@ -17,108 +18,96 @@ const Contact = () => {
       href: "tel:+919063064262"
     },
     {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "Ande Mahendra",
+      href: "https://www.linkedin.com/in/ande-mahendra-7a9420235/"
+    },
+    {
       icon: MapPin,
       label: "Location",
       value: "Hyderabad, India",
       href: "#"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/ande-mahendra-7a9420235",
-      href: "https://www.linkedin.com/in/ande-mahendra-7a9420235/"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to start my professional journey. Let's connect and explore opportunities together.
+    <section id="contact" className="py-32 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="max-w-4xl mx-auto text-center mb-24"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Badge variant="outline" className="mb-6">Connect</Badge>
+          <h2 className="text-5xl lg:text-8xl font-bold mb-8 text-gradient">Get In Touch</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
+            "Ready to start my professional journey. Let's connect and explore opportunities together."
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Contact Information */}
-            <Card className="shadow-elegant">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-foreground mb-8">Contact Information</h3>
-                <div className="space-y-6">
-                  {contactInfo.map((item, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <item.icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{item.label}</p>
-                        <a 
-                          href={item.href}
-                          className="text-foreground font-medium hover:text-primary hover:shadow-soft px-2 py-1 rounded transition-all duration-300"
-                        >
-                          {item.value}
-                        </a>
-                      </div>
-                    </div>
-                  ))}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left Column - Direct Contact */}
+          <div className="space-y-6">
+            {contactInfo.map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 flex items-center gap-6 group hover:bg-foreground/5 transition-all duration-500"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500 shadow-soft">
+                  <item.icon className="w-6 h-6" />
                 </div>
-
-                <div className="mt-8 pt-8 border-t border-border">
-                  <div className="space-y-4">
-                    <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold text-primary mb-2">🚀 Ready to Contribute</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Eager to bring fresh perspectives and dedication to your team
-                      </p>
-                    </div>
-                    <Button className="w-full flex items-center gap-2 shadow-soft">
-                      <Github className="w-4 h-4" />
-                      View My Work & Projects
-                    </Button>
-                  </div>
+                <div className="flex-grow">
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">{item.label}</p>
+                  <p className="text-lg font-bold truncate group-hover:text-primary transition-colors">{item.value}</p>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Professional Status */}
-            <Card className="shadow-elegant">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-foreground mb-8">Current Status</h3>
-                
-                <div className="space-y-6">
-                  <div className="p-4 bg-accent rounded-lg">
-                    <h4 className="font-semibold text-accent-foreground mb-2">🎓 Academic Status</h4>
-                    <p className="text-accent-foreground/80">
-                      Final year B.Tech student (AI & ML) - Graduating May 2026
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-primary/10 rounded-lg">
-                    <h4 className="font-semibold text-foreground mb-2">💼 Career Objective</h4>
-                    <p className="text-muted-foreground">
-                      Seeking entry-level opportunities in AI/ML, Software Development, or Data Analytics
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-muted rounded-lg">
-                    <h4 className="font-semibold text-muted-foreground mb-2">🚀 Availability</h4>
-                    <p className="text-muted-foreground">
-                      Available for internships and full-time positions
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-secondary rounded-lg">
-                    <h4 className="font-semibold text-secondary-foreground mb-2">📍 Preferred Locations</h4>
-                    <p className="text-secondary-foreground/80">
-                      Hyderabad, Bangalore, Chennai, or Remote
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-30 transition-opacity" />
+              </motion.a>
+            ))}
           </div>
+
+          {/* Right Column - Status & Vision */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="glass-card p-12 flex flex-col justify-between relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-foreground/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-foreground/10 transition-colors" />
+
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold mb-8 tracking-tighter uppercase">Current Status</h3>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-primary mb-3">🎓 Graduation</h4>
+                  <p className="text-xl font-medium text-foreground/80">Final year B.Tech (AI & ML) — May 2026</p>
+                </div>
+
+                <div className="pt-8 border-t border-foreground/5">
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-primary mb-3">📍 Relocation</h4>
+                  <p className="text-xl font-medium text-foreground/80">Open to Hyderabad, Bangalore, Chennai, or Remote work.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-12">
+              <Button size="lg" className="w-full bg-foreground text-background hover:bg-foreground/90 py-8 text-lg font-bold uppercase tracking-widest rounded-2xl shadow-elegant group">
+                <Github className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform" />
+                View GitHub Repositories
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

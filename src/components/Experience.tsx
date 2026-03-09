@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -9,127 +9,109 @@ import switch2itjobsLogo from "@/assets/logos/switch2itjobs-logo.jpg";
 import rovixAiLogo from "@/assets/logos/rovix-ai-logo.png";
 
 const Experience = () => {
-
   const experiences = [
     {
       title: "Prompt Engineer",
       company: "Rovix AI",
-      duration: "January 2026 - Present",
+      duration: "Jan 2026 - Present",
       type: "Full-time",
       logo: rovixAiLogo,
-      description: "At Rovix AI, I work on shaping how humans interact with artificial intelligence. As a Prompt Engineer, my role focuses on designing, testing, and refining prompts that help AI models think better, respond smarter, and perform consistently in real-world use cases. I collaborate closely with product and development teams to translate business goals into effective AI instructions. From building structured prompt systems to optimizing responses for accuracy, tone, and performance, I ensure that AI outputs are not just correct — but useful, scalable, and production-ready."
+      description: "Shaping human-AI interaction by designing and refining prompt systems. Collaborating with product teams to optimize AI models for tone, accuracy, and production readiness."
     },
     {
       title: "Prompt Engineer Intern",
       company: "TechnoHacks EduTech",
-      duration: "November 2025 - December 2025",
+      duration: "Nov 2025 - Dec 2025",
       type: "Internship",
       logo: technohacksLogo,
-      description: "Working on AI prompt engineering and optimization at an ISO certified tech company. Developing effective prompts for various AI models, analyzing prompt performance metrics, and creating documentation for prompt best practices. Contributing to AI-powered solutions while gaining hands-on experience with cutting-edge language models and practical AI applications."
+      description: "Developed structured prompt libraries and optimized query performance for varied LLM use cases at an ISO certified company."
     },
     {
       title: "Data Science Intern",
       company: "The Developers Arena",
-      duration: "November 2025 - December 2025",
+      duration: "Nov 2025 - Dec 2025",
       type: "Internship",
       logo: developersArenaLogo,
-      description: "Working on real-world data science projects under experienced mentors. Applying machine learning techniques for data analysis, building predictive models, and extracting actionable insights from datasets. Collaborating in teams using Agile methodologies while developing problem-solving skills through practical, industry-relevant challenges."
+      description: "Built predictive models and derived insights using ML techniques in an Agile team environment."
     },
     {
       title: "AI Developer Intern",
       company: "Viswam.AI – Summer of AI 2025",
-      duration: "August 2025 - September 2025",
+      duration: "Aug 2025 - Sep 2025",
       type: "Internship",
       logo: viswamLogo,
-      description: "Selected for the world's largest AI internship program, a collaborative initiative by Viswam.AI, Swecha, IIIT Hyderabad, Meta, TASK, and HYSEA. Completed a 4-week intensive program focused on practical AI software development, model fine-tuning, and open-source projects. Gained hands-on experience in Python for AI applications, data curation for culturally relevant AI models, and contributed to the foundational Telugu LLM project."
-    },
-    {
-      title: "Web Manager",
-      company: "Switch2ITjobs.com",
-      duration: "June 2022 - September 2022",
-      type: "Full-time",
-      logo: switch2itjobsLogo,
-      description: "Managed web operations and maintained the company's digital presence."
-    },
-    {
-      title: "Marketing Head",
-      company: "Switch2ITjobs.com",
-      duration: "April 2022 - June 2022",
-      type: "Full-time",
-      logo: switch2itjobsLogo,
-      description: "Led marketing initiatives and strategic campaigns to drive business growth."
+      description: "Contributed to Telugu-LLM foundation and open-source AI projects in a collaborative initiative with IIIT Hyderabad and Meta."
     }
   ];
 
   return (
-    <section 
-      id="experience" 
-      className="py-20 bg-muted/30"
+    <section
+      id="experience"
+      className="py-32 relative overflow-hidden"
     >
-      <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="max-w-4xl mb-24 lg:text-right ml-auto"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-foreground mb-4">Work Experience</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My professional journey and key responsibilities
+          <Badge variant="outline" className="mb-4">Career Path</Badge>
+          <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-gradient">Experience</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl ml-auto leading-relaxed">
+            A track record of leveraging AI and data science to solve complex problems across internships and professional roles.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex flex-col lg:flex-row gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-lg overflow-hidden bg-background flex items-center justify-center border border-border">
-                        <img src={exp.logo} alt={`${exp.company} logo`} className="w-14 h-14 object-contain" />
+        <div className="max-w-4xl mx-auto relative">
+          {/* Vertical Line */}
+          <div className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-foreground/10" />
+
+          <div className="space-y-16">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 0 ? "lg:flex-row-reverse" : ""
+                  }`}
+              >
+                <div className="flex-1 w-full">
+                  <div className="glass-card p-8 group">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/50 p-2 flex items-center justify-center border border-white/20 shrink-0">
+                        <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{exp.title}</h3>
+                        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">{exp.company}</p>
                       </div>
                     </div>
-                    
-                    <div className="flex-grow">
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-semibold text-foreground mb-2">
-                            {exp.title}
-                          </h3>
-                          <h4 className="text-xl text-primary font-medium mb-2">
-                            {exp.company}
-                          </h4>
-                        </div>
-                        <div className="lg:text-right">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent text-accent-foreground">
-                            {exp.type}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {exp.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <div className="flex items-center gap-2 text-xs font-bold text-foreground/50">
                         <Calendar className="w-4 h-4" />
                         <span>{exp.duration}</span>
                       </div>
-                      
-                      <p className="text-muted-foreground leading-relaxed">
-                        {exp.description}
-                      </p>
+                      <Badge variant="secondary" className="opacity-50">{exp.type}</Badge>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                </div>
+
+                {/* Timeline Dot */}
+                <div className="relative z-20 flex items-center justify-center w-12 h-12">
+                  <div className="w-4 h-4 rounded-full bg-foreground shadow-elegant ring-8 ring-foreground/5" />
+                </div>
+
+                <div className="flex-1 hidden lg:block" />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Award, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+
 import eaLogo from "@/assets/logos/ea-logo.png";
 import ibmLogo from "@/assets/logos/ibm-logo.png";
 import tataLogo from "@/assets/logos/tata-logo.png";
@@ -24,14 +25,14 @@ const Certifications = () => {
       logo: ibmLogo
     },
     {
-      title: "Software Engineering Job Simulation",
+      title: "Software Engineering Simulation",
       issuer: "Electronic Arts (FORAGE)",
       date: "February 2025",
       type: "Software Engineering",
       logo: eaLogo
     },
     {
-      title: "Data Visualisation: Empowering Business with Effective Insights",
+      title: "Data Visualisation Insights",
       issuer: "TATA Group (FORAGE)",
       date: "May 2025",
       type: "Data Analytics",
@@ -45,14 +46,7 @@ const Certifications = () => {
       logo: linkedinLogo
     },
     {
-      title: "Product Management Job Simulation",
-      issuer: "Electronic Arts (FORAGE)",
-      date: "May 2025",
-      type: "Product Management",
-      logo: eaLogo
-    },
-    {
-      title: "Data Analytics Job Simulation",
+      title: "Data Analytics Simulation",
       issuer: "Deloitte (FORAGE)",
       date: "May 2025",
       type: "Data Analytics",
@@ -66,28 +60,21 @@ const Certifications = () => {
       logo: bcgLogo
     },
     {
-      title: "Software Engineering Job Simulation",
+      title: "Software Engineering Simulation",
       issuer: "Accenture (FORAGE)",
       date: "May 2025",
       type: "Software Engineering",
       logo: accentureLogo
     },
     {
-      title: "Prompt Engineering Using ChatGPT",
+      title: "Prompt Engineering ChatGPT",
       issuer: "LinkedIn Learning",
       date: "May 2025",
       type: "AI/ML",
       logo: linkedinLogo
     },
     {
-      title: "Sales Strategy: Using AI and Automation to Sell More",
-      issuer: "LinkedIn Learning",
-      date: "May 2025",
-      type: "Business",
-      logo: linkedinLogo
-    },
-    {
-      title: "Vibe Coding Fundamentals: Tools and Best Practices",
+      title: "Vibe Coding Fundamentals",
       issuer: "LinkedIn Learning",
       date: "May 2025",
       type: "Programming",
@@ -99,27 +86,6 @@ const Certifications = () => {
       date: "June 2025",
       type: "AI/ML",
       logo: udemyLogo
-    },
-    {
-      title: "GenAI-Powered Data Analytics Job Simulation",
-      issuer: "TATA Group (FORAGE)",
-      date: "June 2025",
-      type: "Data Analytics",
-      logo: tataLogo
-    },
-    {
-      title: "Generative AI: Working with Large Language Models",
-      issuer: "LinkedIn Learning",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: linkedinLogo
-    },
-    {
-      title: "Data Analytics Job Simulation",
-      issuer: "Quantium (FORAGE)",
-      date: "June 2025",
-      type: "Data Analytics",
-      logo: quantiumLogo
     },
     {
       title: "Prompt Engineering",
@@ -134,102 +100,78 @@ const Certifications = () => {
       date: "June 2025",
       type: "AI/ML",
       logo: oracleLogo
-    },
-    {
-      title: "AI Aware",
-      issuer: "Intel & Digital India",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: null
-    },
-    {
-      title: "Certified Machine Learning Specialty",
-      issuer: "AWS",
-      date: "August 2025",
-      type: "AI/ML",
-      logo: awsLogo
-    },
-    {
-      title: "Certified Artificial Intelligence Practitioner",
-      issuer: "AWS",
-      date: "August 2025",
-      type: "AI/ML",
-      logo: awsLogo
     }
   ];
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "AI/ML": return "bg-primary text-primary-foreground";
-      case "Data Analytics": return "bg-accent text-accent-foreground";
-      case "Software Engineering": return "bg-secondary text-secondary-foreground";
-      case "Programming": return "bg-muted text-muted-foreground";
-      case "Product Management": return "bg-primary/80 text-primary-foreground";
-      case "Business": return "bg-muted/80 text-foreground";
-      default: return "bg-secondary text-secondary-foreground";
-    }
-  };
-
   return (
-    <section id="certifications" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Certifications & Achievements</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Professional certifications that validate my expertise across multiple domains
+    <section id="certifications" className="py-32 relative overflow-hidden bg-background">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="max-w-4xl mb-24"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Badge variant="outline" className="mb-4">Validation</Badge>
+          <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-gradient">Certifications</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            A comprehensive list of professional credentials validating expertise in AI, Data, and Software Development.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {certifications.map((cert, index) => (
-            <Card key={index} className="shadow-soft hover:shadow-elegant transition-all duration-300 h-full">
-              <CardContent className="p-6 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-grow">
-                    <Badge className={`mb-3 ${getTypeColor(cert.type)}`}>
-                      {cert.type}
-                    </Badge>
-                    <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">
-                      {cert.title}
-                    </h3>
-                  </div>
-                  {cert.logo && (
-                    <div className="flex-shrink-0 ml-3">
-                      <img 
-                        src={cert.logo} 
-                        alt={`${cert.issuer} logo`}
-                        className="w-12 h-12 object-contain grayscale opacity-70"
-                      />
-                    </div>
-                  )}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index % 3 * 0.1 }}
+              viewport={{ once: true }}
+              className="glass-card p-8 flex flex-col h-full group hover:border-primary/20 transition-all duration-500"
+            >
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                  <Award className="w-6 h-6" />
                 </div>
-                
-                <div className="flex-grow">
-                  <div className="flex items-center gap-2 text-primary font-medium mb-3">
-                    <Award className="w-4 h-4" />
-                    <span className="text-sm">{cert.issuer}</span>
+                {cert.logo && (
+                  <img
+                    src={cert.logo}
+                    alt={cert.issuer}
+                    className="h-10 w-auto grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                  />
+                )}
+              </div>
+
+              <div className="flex-grow space-y-4">
+                <Badge variant="secondary" className="bg-foreground/5 text-xs uppercase tracking-widest">{cert.type}</Badge>
+                <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">{cert.title}</h3>
+
+                <div className="space-y-2 pt-4 border-t border-foreground/5">
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground/80">
+                    <span className="text-primary">•</span>
+                    {cert.issuer}
                   </div>
-                  
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4">
-                    <Calendar className="w-4 h-4" />
-                    <span>{cert.date}</span>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground uppercase tracking-widest">
+                    <Calendar className="w-3 h-3" />
+                    {cert.date}
                   </div>
                 </div>
-                
-                <div className="mt-auto">
-                  <button className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium">
-                    <ExternalLink className="w-4 h-4" />
-                    View Certificate
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              <div className="mt-8">
+                <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-primary/80 transition-all group/btn">
+                  Verify Credentials
+                  <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground">
-            <span className="font-semibold">{certifications.length}</span> professional certifications completed
+        <div className="mt-24 text-center">
+          <p className="text-muted-foreground text-sm uppercase tracking-[0.2em]">
+            Total Certifications Obtained: <span className="text-foreground font-bold">{certifications.length}</span>
           </p>
         </div>
       </div>

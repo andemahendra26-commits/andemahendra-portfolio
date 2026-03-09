@@ -1,51 +1,65 @@
-import { Separator } from "@/components/ui/separator";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-2">Ande Mahendra</h3>
-            <p className="text-primary-foreground/80">
-              AI & Machine Learning Engineer | B.Tech CSE Student
+    <footer className="py-20 bg-background relative border-t border-foreground/5 overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+          <div className="max-w-sm">
+            <h3 className="text-3xl font-bold mb-6 text-gradient italic tracking-tighter">Ande Mahendra</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Engineering the future through the lens of Artificial Intelligence and Machine Learning. Building robust, data-driven solutions.
             </p>
           </div>
 
-          <Separator className="bg-primary-foreground/20 mb-8" />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h4 className="font-semibold mb-4">Education</h4>
-              <p className="text-primary-foreground/80 text-sm">
-                B.Tech CSE (AI & ML)<br />
-                Siddhartha Institute of Engineering and Technology
-              </p>
+          <div className="grid grid-cols-2 gap-16">
+            <div className="space-y-6">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Links</h4>
+              <ul className="space-y-4">
+                <li><a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a></li>
+                <li><a href="#projects" className="text-sm font-medium hover:text-primary transition-colors">Projects</a></li>
+                <li><a href="#skills" className="text-sm font-medium hover:text-primary transition-colors">Skills</a></li>
+                <li><a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a></li>
+              </ul>
             </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Specialization</h4>
-              <p className="text-primary-foreground/80 text-sm">
-                Artificial Intelligence<br />
-                Machine Learning & Data Analytics
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-primary-foreground/80 text-sm">
-                andemahendra26@gmail.com<br />
-                +91 9063064262
-              </p>
+            <div className="space-y-6">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Social</h4>
+              <div className="flex gap-4">
+                <a href="https://github.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-500">
+                  <Github className="w-5 h-5" />
+                </a>
+                <a href="https://linkedin.com/in/ande-mahendra-7a9420235/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-500">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="mailto:andemahendra26@gmail.com" className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-500">
+                  <Mail className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
+        </div>
 
-          <Separator className="bg-primary-foreground/20 mb-6" />
+        <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} — Made with <span className="text-primary mx-1">✦</span> by Ande Mahendra
+          </p>
 
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-primary-foreground/60">
-            <p>© 2025 Ande Mahendra. All rights reserved.</p>
-            <p className="mt-2 sm:mt-0">Built with passion and dedication</p>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+          >
+            Back to Top
+            <div className="w-10 h-10 rounded-full border border-foreground/5 flex items-center justify-center group-hover:border-primary/30 transition-colors">
+              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+            </div>
+          </button>
         </div>
       </div>
     </footer>
