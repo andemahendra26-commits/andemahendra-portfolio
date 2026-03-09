@@ -1,54 +1,50 @@
 import { Badge } from "@/components/ui/badge";
-import { Calendar } from "lucide-react";
+import { Calendar, Shield, Cpu, Activity, Database } from "lucide-react";
 import { motion } from "framer-motion";
 
 import technohacksLogo from "@/assets/logos/technohacks-logo.jpg";
 import developersArenaLogo from "@/assets/logos/developers-arena-logo.jpg";
 import viswamLogo from "@/assets/logos/viswam-logo.jpg";
-import switch2itjobsLogo from "@/assets/logos/switch2itjobs-logo.jpg";
 import rovixAiLogo from "@/assets/logos/rovix-ai-logo.png";
 
 const Experience = () => {
   const experiences = [
     {
-      title: "Prompt Engineer",
-      company: "Rovix AI",
-      duration: "Jan 2026 - Present",
-      type: "Full-time",
+      id: "LOG_001",
+      title: "PROMPT_ENGINEER",
+      company: "ROVIX_AI",
+      duration: "JAN_2026 - CURRENT",
       logo: rovixAiLogo,
-      description: "Shaping human-AI interaction by designing and refining prompt systems. Collaborating with product teams to optimize AI models for tone, accuracy, and production readiness."
+      description: "SHAPING NEURAL INTERACTION BY DESIGNING ADVANCED PROMPT ARCHITECTURES. OPTIMIZING PRODUCTION-READY LLM OUTPUTS."
     },
     {
-      title: "Prompt Engineer Intern",
-      company: "TechnoHacks EduTech",
-      duration: "Nov 2025 - Dec 2025",
-      type: "Internship",
+      id: "LOG_002",
+      title: "PROMPT_ENGINEER_INTERN",
+      company: "TECHNOHACKS_EDU",
+      duration: "NOV_2025 - DEC_2025",
       logo: technohacksLogo,
-      description: "Developed structured prompt libraries and optimized query performance for varied LLM use cases at an ISO certified company."
+      description: "ENGINEERED STRUCTURED PROMPT LIBRARIES. OPTIMIZED QUERY THROUGHPUT FOR COMPLEX AGENTIC WORKFLOWS."
     },
     {
-      title: "Data Science Intern",
-      company: "The Developers Arena",
-      duration: "Nov 2025 - Dec 2025",
-      type: "Internship",
+      id: "LOG_003",
+      title: "DATA_SCIENCE_INTERN",
+      company: "DEV_ARENA",
+      duration: "NOV_2025 - DEC_2025",
       logo: developersArenaLogo,
-      description: "Built predictive models and derived insights using ML techniques in an Agile team environment."
+      description: "SYNTHESIZED PREDICTIVE MODELS. DERIVED HIGH-FIDELITY INSIGHTS THROUGH AGILE ANALYTIC PIPELINES."
     },
     {
-      title: "AI Developer Intern",
-      company: "Viswam.AI – Summer of AI 2025",
-      duration: "Aug 2025 - Sep 2025",
-      type: "Internship",
+      id: "LOG_004",
+      title: "AI_DEVELOPMENT_UNIT",
+      company: "VISWAM_AI",
+      duration: "AUG_2025 - SEP_2025",
       logo: viswamLogo,
-      description: "Contributed to Telugu-LLM foundation and open-source AI projects in a collaborative initiative with IIIT Hyderabad and Meta."
+      description: "ARCHITECTED TELUGU-LLM COMPONENTS. COLLABORATED WITH IIIT HYDERABAD ON OPEN-SOURCE FOUNDATION MODELS."
     }
   ];
 
   return (
-    <section
-      id="experience"
-      className="py-32 relative overflow-hidden"
-    >
+    <section id="experience" className="py-32 relative bg-background overflow-hidden border-t border-primary/5">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="max-w-4xl mb-24 lg:text-right ml-auto"
@@ -57,61 +53,56 @@ const Experience = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Badge variant="outline" className="mb-4">Career Path</Badge>
-          <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-gradient">Experience</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl ml-auto leading-relaxed">
-            A track record of leveraging AI and data science to solve complex problems across internships and professional roles.
-          </p>
+          <div className="flex items-center justify-end gap-4 mb-4">
+            <span className="text-hud text-xs">Registry_Log_Connected</span>
+            <Database className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-5xl md:text-7xl font-black mb-8">DEPLOYMENT_HISTORY</h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical Line */}
-          <div className="absolute left-0 lg:left-1/2 top-0 bottom-0 w-px bg-foreground/10" />
+        <div className="max-w-5xl mx-auto space-y-8">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="stark-card group flex flex-col md:flex-row items-center border-l-4 border-l-primary/30"
+            >
+              <div className="p-8 md:w-1/4 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/5 bg-white/5">
+                <div className="w-16 h-16 rounded-sm overflow-hidden bg-white mb-4 p-2 border border-primary/20">
+                  <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
+                </div>
+                <div className="text-[10px] font-mono text-primary font-bold">{exp.id}</div>
+              </div>
 
-          <div className="space-y-16">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 0 ? "lg:flex-row-reverse" : ""
-                  }`}
-              >
-                <div className="flex-1 w-full">
-                  <div className="glass-card p-8 group">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/50 p-2 flex items-center justify-center border border-white/20 shrink-0">
-                        <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{exp.title}</h3>
-                        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">{exp.company}</p>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {exp.description}
-                    </p>
-                    <div className="flex items-center justify-between mt-auto">
-                      <div className="flex items-center gap-2 text-xs font-bold text-foreground/50">
-                        <Calendar className="w-4 h-4" />
-                        <span>{exp.duration}</span>
-                      </div>
-                      <Badge variant="secondary" className="opacity-50">{exp.type}</Badge>
-                    </div>
+              <div className="p-8 flex-grow space-y-4">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-black group-hover:text-primary transition-colors">{exp.title}</h3>
+                    <div className="text-hud text-[11px] opacity-60">ORG: {exp.company}</div>
+                  </div>
+                  <div className="flex items-center gap-2 text-hud text-[10px] bg-primary/10 px-3 py-1 border border-primary/20 rounded-sm">
+                    <Calendar className="w-3 h-3" />
+                    {exp.duration}
                   </div>
                 </div>
 
-                {/* Timeline Dot */}
-                <div className="relative z-20 flex items-center justify-center w-12 h-12">
-                  <div className="w-4 h-4 rounded-full bg-foreground shadow-elegant ring-8 ring-foreground/5" />
-                </div>
+                <p className="text-muted-foreground font-mono text-xs leading-relaxed max-w-2xl border-l border-primary/20 pl-4 py-1">
+                  {exp.description}
+                </p>
+              </div>
 
-                <div className="flex-1 hidden lg:block" />
-              </motion.div>
-            ))}
-          </div>
+              {/* HUD Element Right */}
+              <div className="hidden lg:flex p-8 flex-col justify-between items-end opacity-20">
+                <div className="w-8 h-8 rounded-full border border-primary flex items-center justify-center animate-spin-slow">
+                  <Cpu className="w-4 h-4" />
+                </div>
+                <div className="text-[8px] font-mono mt-8">STATUS: VERIFIED</div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
