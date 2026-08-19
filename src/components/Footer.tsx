@@ -35,7 +35,7 @@ const Footer = () => {
               <h4 className="font-semibold mb-4">Contact</h4>
               <p className="text-primary-foreground/80 text-sm">
                 andemahendra26@gmail.com<br />
-                +91 9063064262
+                +91 8328592182
               </p>
             </div>
           </div>

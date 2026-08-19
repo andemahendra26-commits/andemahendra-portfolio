@@ -25,10 +25,10 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4 py-20"
+      className="min-h-screen flex items-center justify-center bg-gradient-subtle px-4 py-12"
     >
       <div className="container max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Profile Image */}
           <motion.div
             className="lg:w-1/3"
@@ -75,38 +75,38 @@ const Hero = () => {
                 src={heroNameArt}
                 alt=""
                 aria-hidden="true"
-                className="dark:invert h-24 sm:h-32 md:h-36 lg:h-44 w-auto max-w-full"
+                className="dark:invert h-16 sm:h-24 md:h-28 lg:h-36 w-auto max-w-full"
               />
             </motion.div>
             <motion.h2
-              className="text-2xl lg:text-3xl font-light text-muted-foreground mb-8"
+              className="text-2xl lg:text-3xl font-light text-muted-foreground mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.33, delay: 0.33 }}
             >
-              AI & Machine Learning Engineer
+              GenAI Engineer
             </motion.h2>
             <motion.p
-              className="text-lg text-muted-foreground mb-12 max-w-2xl leading-relaxed"
+              className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.33, delay: 0.44 }}
             >
-              A highly motivated B.Tech Computer Science Engineering (AI & ML) student, passionate about
-              contributing to innovative organizations and continuously developing technical skills through
-              real-world challenges.
+              GenAI Engineer at Rovix AI, building multi-agent AI systems and production-grade generative
+              AI tooling. Final-year B.Tech Computer Science Engineering (AI & ML) student passionate about
+              shipping reliable, scalable AI.
             </motion.p>
 
             {/* Contact Info */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-6 mb-12 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-6 mb-8 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.33, delay: 0.55 }}
             >
               {[
                 { icon: Mail, text: "andemahendra26@gmail.com" },
-                { icon: Phone, text: "9063064262" },
+                { icon: Phone, text: "8328592182" },
                 { icon: MapPin, text: "Hyderabad, India" }
               ].map((contact, index) => (
                 <motion.div
