@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import skillsArt from "@/assets/ascii/skills.png";
 
 const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -80,23 +81,11 @@ const Skills = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.44, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="sr-only">Skills</h2>
-          <pre
-            aria-hidden="true"
-            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
-          >
-{` .d8888b.  888    d8P  8888888 888      888      .d8888b.
-d88P  Y88b 888   d8P     888   888      888     d88P  Y88b
-Y88b.      888  d8P      888   888      888     Y88b.
- "Y888b.   888d88K       888   888      888      "Y888b.
-    "Y88b. 8888888b      888   888      888         "Y88b.
-      "888 888  Y88b     888   888      888           "888
-Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
- "Y8888P"  888    Y88b 8888888 88888888 88888888 "Y8888P"`}
-          </pre>
+          <img src={skillsArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Technical competencies and soft skills that drive my professional growth
           </p>
@@ -108,7 +97,7 @@ Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
             className="text-2xl font-semibold text-foreground mb-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.33 }}
             viewport={{ once: true }}
           >
             Technical Skills
@@ -120,7 +109,7 @@ Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.275, delay: index * 0.055 }}
                 viewport={{ once: true }}
               >
                 <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
@@ -129,7 +118,7 @@ Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
                       <motion.div
                         className={`w-10 h-10 ${category.color} rounded-lg flex items-center justify-center`}
                         whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.165 }}
                       >
                         <category.icon className="w-5 h-5 text-white" />
                       </motion.div>
@@ -142,7 +131,7 @@ Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                          transition={{ duration: 0.165, delay: skillIndex * 0.028 }}
                           viewport={{ once: true }}
                         >
                           <Badge variant="secondary" className="text-sm">
@@ -164,7 +153,7 @@ Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
             className="text-2xl font-semibold text-foreground mb-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.33 }}
             viewport={{ once: true }}
           >
             Soft Skills
@@ -176,14 +165,14 @@ Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 whileHover={{ scale: 1.1, y: -5 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ duration: 0.22, delay: index * 0.055 }}
                 viewport={{ once: true }}
               >
                 <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
                   <CardContent className="p-4 text-center">
                     <motion.div
                       whileHover={{ rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.275 }}
                     >
                       <skill.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                     </motion.div>

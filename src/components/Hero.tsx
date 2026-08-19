@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import heroNameArt from "@/assets/ascii/hero-name.png";
 
 const Hero = () => {
 
@@ -33,7 +34,7 @@ const Hero = () => {
             className="lg:w-1/3"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.44, ease: "easeOut" }}
           >
             <div className="relative">
               <motion.div
@@ -50,7 +51,7 @@ const Hero = () => {
                   key={currentImageIndex}
                   initial={{ scale: 1.1, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.275 }}
                 />
               </motion.div>
             </div>
@@ -61,34 +62,27 @@ const Hero = () => {
             className="lg:w-2/3 text-center lg:text-left"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.44, ease: "easeOut", delay: 0.11 }}
           >
             <motion.div
               className="mb-6"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.44, delay: 0.22 }}
             >
               <h1 className="sr-only">Mahendra Ande</h1>
-              <pre
+              <img
+                src={heroNameArt}
+                alt=""
                 aria-hidden="true"
-                className="ascii-art font-mono leading-none whitespace-pre text-foreground overflow-x-auto text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
-              >
-{`888b     d888        d8888 888    888 8888888888 888b    888 8888888b.  8888888b.         d8888             d8888 888b    888 8888888b.  8888888888
-8888b   d8888       d88888 888    888 888        8888b   888 888  "Y88b 888   Y88b       d88888            d88888 8888b   888 888  "Y88b 888
-88888b.d88888      d88P888 888    888 888        88888b  888 888    888 888    888      d88P888           d88P888 88888b  888 888    888 888
-888Y88888P888     d88P 888 8888888888 8888888    888Y88b 888 888    888 888   d88P     d88P 888          d88P 888 888Y88b 888 888    888 8888888
-888 Y888P 888    d88P  888 888    888 888        888 Y88b888 888    888 8888888P"     d88P  888         d88P  888 888 Y88b888 888    888 888
-888  Y8P  888   d88P   888 888    888 888        888  Y88888 888    888 888 T88b     d88P   888        d88P   888 888  Y88888 888    888 888
-888   "   888  d8888888888 888    888 888        888   Y8888 888  .d88P 888  T88b   d8888888888       d8888888888 888   Y8888 888  .d88P 888
-888       888 d88P     888 888    888 8888888888 888    Y888 8888888P"  888   T88b d88P     888      d88P     888 888    Y888 8888888P"  8888888888`}
-              </pre>
+                className="dark:invert h-24 sm:h-32 md:h-36 lg:h-44 w-auto max-w-full"
+              />
             </motion.div>
             <motion.h2
               className="text-2xl lg:text-3xl font-light text-muted-foreground mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.33, delay: 0.33 }}
             >
               AI & Machine Learning Engineer
             </motion.h2>
@@ -96,7 +90,7 @@ const Hero = () => {
               className="text-lg text-muted-foreground mb-12 max-w-2xl leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.33, delay: 0.44 }}
             >
               A highly motivated B.Tech Computer Science Engineering (AI & ML) student, passionate about
               contributing to innovative organizations and continuously developing technical skills through
@@ -108,7 +102,7 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-6 mb-12 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
+              transition={{ duration: 0.33, delay: 0.55 }}
             >
               {[
                 { icon: Mail, text: "andemahendra26@gmail.com" },
@@ -120,7 +114,7 @@ const Hero = () => {
                   className="flex items-center gap-3 text-muted-foreground"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                  transition={{ duration: 0.22, delay: 0.66 + index * 0.055 }}
                   whileHover={{ scale: 1.05, x: 5 }}
                 >
                   <contact.icon className="w-5 h-5" />
@@ -134,7 +128,7 @@ const Hero = () => {
               className="flex justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.5 }}
+              transition={{ duration: 0.33, delay: 0.825 }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}

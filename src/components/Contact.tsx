@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import contactArt from "@/assets/ascii/contact.png";
 
 const Contact = () => {
   const contactInfo = [
@@ -35,19 +36,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="sr-only">Contact</h2>
-          <pre
-            aria-hidden="true"
-            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
-          >
-{` .d8888b.   .d88888b.  888b    888 88888888888     d8888  .d8888b. 88888888888
-d88P  Y88b d88P" "Y88b 8888b   888     888        d88888 d88P  Y88b    888
-888    888 888     888 88888b  888     888       d88P888 888    888    888
-888        888     888 888Y88b 888     888      d88P 888 888           888
-888        888     888 888 Y88b888     888     d88P  888 888           888
-888    888 888     888 888  Y88888     888    d88P   888 888    888    888
-Y88b  d88P Y88b. .d88P 888   Y8888     888   d8888888888 Y88b  d88P    888
- "Y8888P"   "Y88888P"  888    Y888     888  d88P     888  "Y8888P"     888`}
-          </pre>
+          <img src={contactArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to start my professional journey. Let's connect and explore opportunities together.
           </p>

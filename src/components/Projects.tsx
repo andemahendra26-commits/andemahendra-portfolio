@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Smartphone, Bot, MessageSquare, Network, Phone, Cpu, Mic, Globe, Library, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
+import projectsArt from "@/assets/ascii/projects.png";
 
 const Projects = () => {
 
@@ -117,36 +118,24 @@ const Projects = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.44, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div
             className="mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.33, delay: 0.11 }}
             viewport={{ once: true }}
           >
             <h2 className="sr-only">Projects</h2>
-            <pre
-              aria-hidden="true"
-              className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
-            >
-{`8888888b.  8888888b.   .d88888b. 888888 8888888888 .d8888b. 88888888888 .d8888b.
-888   Y88b 888   Y88b d88P" "Y88b  "88b 888       d88P  Y88b    888    d88P  Y88b
-888    888 888    888 888     888   888 888       888    888    888    Y88b.
-888   d88P 888   d88P 888     888   888 8888888   888           888     "Y888b.
-8888888P"  8888888P"  888     888   888 888       888           888        "Y88b.
-888        888 T88b   888     888   888 888       888    888    888          "888
-888        888  T88b  Y88b. .d88P   88P 888       Y88b  d88P    888    Y88b  d88P
-888        888   T88b  "Y88888P"    888 8888888888 "Y8888P"     888     "Y8888P"`}
-            </pre>
+            <img src={projectsArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto" />
           </motion.div>
           <motion.p
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.33, delay: 0.22 }}
             viewport={{ once: true }}
           >
             Showcasing my technical expertise through real-world applications
@@ -161,11 +150,11 @@ const Projects = () => {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               whileHover={{
                 y: -8,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.165 }
               }}
               transition={{
-                duration: 0.5,
-                delay: index * 0.1,
+                duration: 0.275,
+                delay: index * 0.055,
                 ease: "easeOut"
               }}
               viewport={{ once: true }}
@@ -177,14 +166,14 @@ const Projects = () => {
                     className="flex items-start justify-between"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.275, delay: 0.11 }}
                     viewport={{ once: true }}
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <motion.div
                         className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                         whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.165 }}
                       >
                         <project.icon className="w-6 h-6 text-primary-foreground" />
                       </motion.div>
@@ -209,7 +198,7 @@ const Projects = () => {
                       className="w-full h-48 rounded-lg overflow-hidden group-hover:shadow-lg transition-shadow duration-300"
                       initial={{ opacity: 0, scale: 1.1 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.6 }}
+                      transition={{ duration: 0.33 }}
                       viewport={{ once: true }}
                     >
                       <img
@@ -223,7 +212,7 @@ const Projects = () => {
                     className="text-muted-foreground leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                    transition={{ duration: 0.275, delay: 0.165 }}
                     viewport={{ once: true }}
                   >
                     {project.description}
@@ -233,7 +222,7 @@ const Projects = () => {
                     className="space-y-3 flex-grow"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
+                    transition={{ duration: 0.275, delay: 0.22 }}
                     viewport={{ once: true }}
                   >
                     <div>
@@ -251,8 +240,8 @@ const Projects = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             whileHover={{ scale: 1.1 }}
                             transition={{
-                              duration: 0.3,
-                              delay: techIndex * 0.05,
+                              duration: 0.165,
+                              delay: techIndex * 0.028,
                               ease: "easeOut"
                             }}
                             viewport={{ once: true }}

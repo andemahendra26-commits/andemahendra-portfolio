@@ -13,6 +13,7 @@ import infosysLogo from "@/assets/logos/infosys-logo.png";
 import quantiumLogo from "@/assets/logos/quantium-logo.png";
 import udemyLogo from "@/assets/logos/udemy-logo.png";
 import awsLogo from "@/assets/logos/aws-logo.png";
+import certificationsArt from "@/assets/ascii/certifications.png";
 
 const Certifications = () => {
   const certifications = [
@@ -163,19 +164,7 @@ const Certifications = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="sr-only">Certifications</h2>
-          <pre
-            aria-hidden="true"
-            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[5px] sm:text-[7px] md:text-[10px] lg:text-xs"
-          >
-{` .d8888b.  8888888888 8888888b. 88888888888 8888888 8888888888 8888888 .d8888b.        d8888 88888888888 8888888 .d88888b.  888b    888  .d8888b.
-d88P  Y88b 888        888   Y88b    888       888   888          888  d88P  Y88b      d88888     888       888  d88P" "Y88b 8888b   888 d88P  Y88b
-888    888 888        888    888    888       888   888          888  888    888     d88P888     888       888  888     888 88888b  888 Y88b.
-888        8888888    888   d88P    888       888   8888888      888  888           d88P 888     888       888  888     888 888Y88b 888  "Y888b.
-888        888        8888888P"     888       888   888          888  888          d88P  888     888       888  888     888 888 Y88b888     "Y88b.
-888    888 888        888 T88b      888       888   888          888  888    888  d88P   888     888       888  888     888 888  Y88888       "888
-Y88b  d88P 888        888  T88b     888       888   888          888  Y88b  d88P d8888888888     888       888  Y88b. .d88P 888   Y8888 Y88b  d88P
- "Y8888P"  8888888888 888   T88b    888     8888888 888        8888888 "Y8888P" d88P     888     888     8888888 "Y88888P"  888    Y888  "Y8888P"`}
-          </pre>
+          <img src={certificationsArt} alt="" aria-hidden="true" className="dark:invert h-7 sm:h-9 md:h-11 lg:h-12 w-auto max-w-full mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Professional certifications that validate my expertise across multiple domains
           </p>

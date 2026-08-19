@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+import experienceArt from "@/assets/ascii/experience.png";
 
 import technohacksLogo from "@/assets/logos/technohacks-logo.jpg";
 import developersArenaLogo from "@/assets/logos/developers-arena-logo.jpg";
@@ -95,23 +96,11 @@ const Experience = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.44 }}
           viewport={{ once: true }}
         >
           <h2 className="sr-only">Experience</h2>
-          <pre
-            aria-hidden="true"
-            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
-          >
-{`8888888888 Y88b   d88P 8888888b.  8888888888 8888888b.  8888888 8888888888 888b    888  .d8888b.  8888888888
-888         Y88b d88P  888   Y88b 888        888   Y88b   888   888        8888b   888 d88P  Y88b 888
-888          Y88o88P   888    888 888        888    888   888   888        88888b  888 888    888 888
-8888888       Y888P    888   d88P 8888888    888   d88P   888   8888888    888Y88b 888 888        8888888
-888           d888b    8888888P"  888        8888888P"    888   888        888 Y88b888 888        888
-888          d88888b   888        888        888 T88b     888   888        888  Y88888 888    888 888
-888         d88P Y88b  888        888        888  T88b    888   888        888   Y8888 Y88b  d88P 888
-8888888888 d88P   Y88b 888        8888888888 888   T88b 8888888 8888888888 888    Y888  "Y8888P"  8888888888`}
-          </pre>
+          <img src={experienceArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             My professional journey and key responsibilities
           </p>
@@ -124,7 +113,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.01, y: -3 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.275, delay: index * 0.11 }}
               viewport={{ once: true }}
             >
               <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
