@@ -47,15 +47,28 @@ const About = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2
-            className="text-4xl font-bold text-foreground mb-4"
+          <motion.div
+            className="mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            About Me
-          </motion.h2>
+            <h2 className="sr-only">About Me</h2>
+            <pre
+              aria-hidden="true"
+              className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
+            >
+{`       d8888 888888b.    .d88888b.  888     888 88888888888      888b     d888 8888888888
+      d88888 888  "88b  d88P" "Y88b 888     888     888          8888b   d8888 888
+     d88P888 888  .88P  888     888 888     888     888          88888b.d88888 888
+    d88P 888 8888888K.  888     888 888     888     888          888Y88888P888 8888888
+   d88P  888 888  "Y88b 888     888 888     888     888          888 Y888P 888 888
+  d88P   888 888    888 888     888 888     888     888          888  Y8P  888 888
+ d8888888888 888   d88P Y88b. .d88P Y88b. .d88P     888          888   "   888 888
+d88P     888 8888888P"   "Y88888P"   "Y88888P"      888          888       888 8888888888`}
+            </pre>
+          </motion.div>
           <motion.p
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -80,11 +93,13 @@ const About = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold text-foreground mb-6">Professional Objective</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  A highly motivated and passionate B.Tech Computer Science Engineering (Artificial Intelligence & Machine Learning)
-                  student, nearing graduation, with a strong desire to begin my professional journey. Eager to contribute to an
-                  innovative organization where I can apply and enhance my technical knowledge, gain hands-on experience, and
-                  continuously develop my skills. I am driven to work with dedication, learn from real-world challenges, and grow
-                  into a skilled and reliable professional.
+                  GenAI Engineer at Rovix AI, promoted from Prompt Engineer, building multi-agent AI systems, LLM orchestration
+                  pipelines, and production-grade generative AI tooling. Final-year B.Tech Computer Science Engineering
+                  (Artificial Intelligence & Machine Learning) student with hands-on experience across prompt engineering, RAG
+                  systems, voice AI, and NLP — gained through roles at Rovix AI, TechnoHacks EduTech, The Developers Arena, and
+                  Viswam.AI's Summer of AI program. I build things end to end: from multi-agent deliberation systems and
+                  self-hosted voice platforms to a published NLP library, always with a focus on shipping AI that is reliable,
+                  scalable, and production-ready.
                 </p>
               </CardContent>
             </Card>
@@ -104,8 +119,8 @@ const About = () => {
                   <div className="flex items-center gap-3 mb-6">
                     <motion.div
                       className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
                     >
                       <Globe className="w-5 h-5 text-primary-foreground" />
                     </motion.div>

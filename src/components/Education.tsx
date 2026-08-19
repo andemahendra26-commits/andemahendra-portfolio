@@ -37,7 +37,20 @@ const Education = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Education</h2>
+          <h2 className="sr-only">Education</h2>
+          <pre
+            aria-hidden="true"
+            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
+          >
+{`8888888888 8888888b.  888     888  .d8888b.        d8888 88888888888 8888888 .d88888b.  888b    888
+888        888  "Y88b 888     888 d88P  Y88b      d88888     888       888  d88P" "Y88b 8888b   888
+888        888    888 888     888 888    888     d88P888     888       888  888     888 88888b  888
+8888888    888    888 888     888 888           d88P 888     888       888  888     888 888Y88b 888
+888        888    888 888     888 888          d88P  888     888       888  888     888 888 Y88b888
+888        888    888 888     888 888    888  d88P   888     888       888  888     888 888  Y88888
+888        888  .d88P Y88b. .d88P Y88b  d88P d8888888888     888       888  Y88b. .d88P 888   Y8888
+8888888888 8888888P"   "Y88888P"   "Y8888P" d88P     888     888     8888888 "Y88888P"  888    Y888`}
+          </pre>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             My academic journey and educational achievements
           </p>

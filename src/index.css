@@ -118,3 +118,11 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+.ascii-art {
+  font-family: "Cascadia Mono", "Consolas", "Courier New", ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transform: translateZ(0);
+}

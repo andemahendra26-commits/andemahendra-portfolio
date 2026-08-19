@@ -34,7 +34,20 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
+          <h2 className="sr-only">Contact</h2>
+          <pre
+            aria-hidden="true"
+            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
+          >
+{` .d8888b.   .d88888b.  888b    888 88888888888     d8888  .d8888b. 88888888888
+d88P  Y88b d88P" "Y88b 8888b   888     888        d88888 d88P  Y88b    888
+888    888 888     888 88888b  888     888       d88P888 888    888    888
+888        888     888 888Y88b 888     888      d88P 888 888           888
+888        888     888 888 Y88b888     888     d88P  888 888           888
+888    888 888     888 888  Y88888     888    d88P   888 888    888    888
+Y88b  d88P Y88b. .d88P 888   Y8888     888   d8888888888 Y88b  d88P    888
+ "Y8888P"   "Y88888P"  888    Y888     888  d88P     888  "Y8888P"     888`}
+          </pre>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to start my professional journey. Let's connect and explore opportunities together.
           </p>
@@ -68,7 +81,7 @@ const Contact = () => {
                 <div className="mt-8 pt-8 border-t border-border">
                   <div className="space-y-4">
                     <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold text-primary mb-2">🚀 Ready to Contribute</h4>
+                      <h4 className="font-semibold text-primary mb-2">Ready to Contribute</h4>
                       <p className="text-sm text-muted-foreground">
                         Eager to bring fresh perspectives and dedication to your team
                       </p>
@@ -89,28 +102,28 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   <div className="p-4 bg-accent rounded-lg">
-                    <h4 className="font-semibold text-accent-foreground mb-2">🎓 Academic Status</h4>
+                    <h4 className="font-semibold text-accent-foreground mb-2">Academic Status</h4>
                     <p className="text-accent-foreground/80">
                       Final year B.Tech student (AI & ML) - Graduating May 2026
                     </p>
                   </div>
 
                   <div className="p-4 bg-primary/10 rounded-lg">
-                    <h4 className="font-semibold text-foreground mb-2">💼 Career Objective</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Career Objective</h4>
                     <p className="text-muted-foreground">
                       Seeking entry-level opportunities in AI/ML, Software Development, or Data Analytics
                     </p>
                   </div>
 
                   <div className="p-4 bg-muted rounded-lg">
-                    <h4 className="font-semibold text-muted-foreground mb-2">🚀 Availability</h4>
+                    <h4 className="font-semibold text-muted-foreground mb-2">Availability</h4>
                     <p className="text-muted-foreground">
                       Available for internships and full-time positions
                     </p>
                   </div>
 
                   <div className="p-4 bg-secondary rounded-lg">
-                    <h4 className="font-semibold text-secondary-foreground mb-2">📍 Preferred Locations</h4>
+                    <h4 className="font-semibold text-secondary-foreground mb-2">Preferred Locations</h4>
                     <p className="text-secondary-foreground/80">
                       Hyderabad, Bangalore, Chennai, or Remote
                     </p>

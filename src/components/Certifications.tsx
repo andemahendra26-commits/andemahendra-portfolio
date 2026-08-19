@@ -158,23 +158,24 @@ const Certifications = () => {
     }
   ];
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "AI/ML": return "bg-primary text-primary-foreground";
-      case "Data Analytics": return "bg-accent text-accent-foreground";
-      case "Software Engineering": return "bg-secondary text-secondary-foreground";
-      case "Programming": return "bg-muted text-muted-foreground";
-      case "Product Management": return "bg-primary/80 text-primary-foreground";
-      case "Business": return "bg-muted/80 text-foreground";
-      default: return "bg-secondary text-secondary-foreground";
-    }
-  };
-
   return (
     <section id="certifications" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Certifications & Achievements</h2>
+          <h2 className="sr-only">Certifications</h2>
+          <pre
+            aria-hidden="true"
+            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[5px] sm:text-[7px] md:text-[10px] lg:text-xs"
+          >
+{` .d8888b.  8888888888 8888888b. 88888888888 8888888 8888888888 8888888 .d8888b.        d8888 88888888888 8888888 .d88888b.  888b    888  .d8888b.
+d88P  Y88b 888        888   Y88b    888       888   888          888  d88P  Y88b      d88888     888       888  d88P" "Y88b 8888b   888 d88P  Y88b
+888    888 888        888    888    888       888   888          888  888    888     d88P888     888       888  888     888 88888b  888 Y88b.
+888        8888888    888   d88P    888       888   8888888      888  888           d88P 888     888       888  888     888 888Y88b 888  "Y888b.
+888        888        8888888P"     888       888   888          888  888          d88P  888     888       888  888     888 888 Y88b888     "Y88b.
+888    888 888        888 T88b      888       888   888          888  888    888  d88P   888     888       888  888     888 888  Y88888       "888
+Y88b  d88P 888        888  T88b     888       888   888          888  Y88b  d88P d8888888888     888       888  Y88b. .d88P 888   Y8888 Y88b  d88P
+ "Y8888P"  8888888888 888   T88b    888     8888888 888        8888888 "Y8888P" d88P     888     888     8888888 "Y88888P"  888    Y888  "Y8888P"`}
+          </pre>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Professional certifications that validate my expertise across multiple domains
           </p>
@@ -186,7 +187,7 @@ const Certifications = () => {
               <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-grow">
-                    <Badge className={`mb-3 ${getTypeColor(cert.type)}`}>
+                    <Badge variant="outline" className="mb-3">
                       {cert.type}
                     </Badge>
                     <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">

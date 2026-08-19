@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Smartphone, Bot, MessageSquare } from "lucide-react";
+import { ShoppingCart, Smartphone, Bot, MessageSquare, Network, Phone, Cpu, Mic, Globe, Library, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
 
@@ -47,6 +47,63 @@ const Projects = () => {
       category: "AI Development",
       image: "/lovable-uploads/c113e111-f5c7-4ad8-9df4-31d2d382bcc7.png",
       demoUrl: "https://app.agentx.so/shared-chat/?agent=688a1e4a42b87b91d3bab664"
+    },
+    {
+      title: "Alfredo Council",
+      type: "Multi-Agent AI System",
+      icon: Network,
+      description: "A multi-agent deliberation system where 14 AI models from the NVIDIA NIM catalog debate a question through 11 real coordination protocols — swarm, blackboard, hierarchical, debate, and more — with a live HUD streaming every model's reasoning as the topology of the protocol runs.",
+      scope: "Designed the protocol engine, streaming HUD, and fault-tolerant orchestration layer for real-time multi-model deliberation.",
+      technologies: ["FastAPI", "Python", "NVIDIA NIM", "Multi-Agent Systems", "NDJSON Streaming"],
+      category: "AI Development",
+      highlight: true
+    },
+    {
+      title: "Rovix Hermes Agent",
+      type: "AI Agent",
+      icon: Sparkles,
+      description: "A self-improving AI agent platform with a persistent learning loop — it creates and refines its own skills, retains memory across sessions, and runs across Telegram, Discord, Slack, and CLI from a single gateway.",
+      scope: "Deployed and customized a self-hosted autonomous agent with scheduled automations and cross-platform delivery for Rovix AI use cases.",
+      technologies: ["Python", "LLM Orchestration", "Agent Memory", "Automation"],
+      category: "AI Development",
+      highlight: true
+    },
+    {
+      title: "Alfredo NLP Library",
+      type: "Python Library",
+      icon: Library,
+      description: "A self-contained, offline NLP toolkit implementing TF-IDF, TextRank, and sentiment scoring from scratch — no LLM API calls, no network latency — published as a pip-installable package.",
+      scope: "Authored and published an open-source, NumPy-vectorized NLP library for summarization, sentiment analysis, classification, and keyword extraction.",
+      technologies: ["Python", "NumPy", "NLP", "TF-IDF", "PyPI"],
+      category: "AI Development",
+      highlight: true
+    },
+    {
+      title: "AI Voice Outbound Agent",
+      type: "Voice AI",
+      icon: Phone,
+      description: "A real-time conversational voice agent that places outbound phone calls, handles live conversations, and triggers actions — built on LiveKit for streaming audio and Vobiz for SIP telephony.",
+      scope: "Integrated a low-latency voice pipeline combining real-time transcription, LLM reasoning, and natural speech synthesis for phone-based conversations.",
+      technologies: ["LiveKit", "Vobiz", "Groq", "Sarvam AI", "Python"],
+      category: "AI Development"
+    },
+    {
+      title: "Voice AI Platform",
+      type: "Voice AI",
+      icon: Mic,
+      description: "A self-hosted replacement for ElevenLabs, Twilio, and Whisper — a single microservice backend powering speech-to-text, text-to-speech, and telephony for real-time voice applications.",
+      scope: "Designed a modular services architecture (STT, TTS, conversation, telephony, analytics) that reduces reliance on paid third-party voice APIs.",
+      technologies: ["Docker", "FastAPI", "Whisper", "WebSocket", "Microservices"],
+      category: "AI Development"
+    },
+    {
+      title: "AI Website Agent",
+      type: "Web Application",
+      icon: Globe,
+      description: "An AI-integrated web application built on the CodeIgniter 4 framework, extending a traditional PHP stack with automated, agent-driven website functionality.",
+      scope: "Built and configured the application layer for an AI-assisted website workflow.",
+      technologies: ["PHP", "CodeIgniter 4", "MySQL"],
+      category: "Web Development"
     }
   ];
 
@@ -63,15 +120,28 @@ const Projects = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.h2
-            className="text-4xl font-bold text-foreground mb-4"
+          <motion.div
+            className="mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Featured Projects
-          </motion.h2>
+            <h2 className="sr-only">Projects</h2>
+            <pre
+              aria-hidden="true"
+              className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
+            >
+{`8888888b.  8888888b.   .d88888b. 888888 8888888888 .d8888b. 88888888888 .d8888b.
+888   Y88b 888   Y88b d88P" "Y88b  "88b 888       d88P  Y88b    888    d88P  Y88b
+888    888 888    888 888     888   888 888       888    888    888    Y88b.
+888   d88P 888   d88P 888     888   888 8888888   888           888     "Y888b.
+8888888P"  8888888P"  888     888   888 888       888           888        "Y88b.
+888        888 T88b   888     888   888 888       888    888    888          "888
+888        888  T88b  Y88b. .d88P   88P 888       Y88b  d88P    888    Y88b  d88P
+888        888   T88b  "Y88888P"    888 8888888888 "Y8888P"     888     "Y8888P"`}
+            </pre>
+          </motion.div>
           <motion.p
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +171,7 @@ const Projects = () => {
               viewport={{ once: true }}
               className="h-full"
             >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-500 h-full backdrop-blur-sm group">
+              <Card className={`shadow-soft hover:shadow-elegant transition-all duration-500 h-full backdrop-blur-sm group ${project.highlight ? "ring-2 ring-primary" : ""}`}>
                 <CardHeader className="pb-4">
                   <motion.div
                     className="flex items-start justify-between"
@@ -113,16 +183,21 @@ const Projects = () => {
                     <div className="flex items-center gap-3 mb-3">
                       <motion.div
                         className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
                       >
                         <project.icon className="w-6 h-6 text-primary-foreground" />
                       </motion.div>
                       <div>
                         <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-                        <Badge variant="secondary" className="mt-1 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                          {project.category}
-                        </Badge>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          <Badge variant="secondary" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                            {project.category}
+                          </Badge>
+                          {project.highlight && (
+                            <Badge className="bg-primary text-primary-foreground">Featured</Badge>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </motion.div>

@@ -36,25 +36,25 @@ const Skills = () => {
       title: "Programming Languages",
       icon: Code,
       skills: ["C", "OOPS Concepts", "Java", "Python"],
-      color: "bg-accent"
+      color: "bg-primary"
     },
     {
       title: "Tools & IDEs",
       icon: Wrench,
       skills: ["Visual Studio", "Notepad++"],
-      color: "bg-muted"
+      color: "bg-primary"
     },
     {
       title: "Web Development",
       icon: Globe,
       skills: ["HTML", "CSS", "JavaScript"],
-      color: "bg-secondary"
+      color: "bg-primary"
     },
     {
       title: "Database Management",
       icon: Database,
       skills: ["SQL", "MongoDB"],
-      color: "bg-primary/80"
+      color: "bg-primary"
     }
   ];
 
@@ -83,7 +83,20 @@ const Skills = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-4xl font-bold text-foreground mb-4">Skills & Expertise</h2>
+          <h2 className="sr-only">Skills</h2>
+          <pre
+            aria-hidden="true"
+            className="ascii-art font-mono leading-none whitespace-pre text-foreground inline-block mb-4 text-[6px] sm:text-[9px] md:text-xs lg:text-sm"
+          >
+{` .d8888b.  888    d8P  8888888 888      888      .d8888b.
+d88P  Y88b 888   d8P     888   888      888     d88P  Y88b
+Y88b.      888  d8P      888   888      888     Y88b.
+ "Y888b.   888d88K       888   888      888      "Y888b.
+    "Y88b. 8888888b      888   888      888         "Y88b.
+      "888 888  Y88b     888   888      888           "888
+Y88b  d88P 888   Y88b    888   888      888     Y88b  d88P
+ "Y8888P"  888    Y88b 8888888 88888888 88888888 "Y8888P"`}
+          </pre>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Technical competencies and soft skills that drive my professional growth
           </p>
@@ -115,8 +128,8 @@ const Skills = () => {
                     <div className="flex items-center gap-3 mb-4">
                       <motion.div
                         className={`w-10 h-10 ${category.color} rounded-lg flex items-center justify-center`}
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
                       >
                         <category.icon className="w-5 h-5 text-white" />
                       </motion.div>
