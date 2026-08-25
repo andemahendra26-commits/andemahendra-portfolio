@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-2">Ande Mahendra</h3>
             <p className="text-primary-foreground/80">
-              AI & Machine Learning Engineer | B.Tech CSE Student
+              GenAI Engineer | Building AI that builds things
             </p>
           </div>
 
@@ -43,7 +43,7 @@ const Footer = () => {
           <Separator className="bg-primary-foreground/20 mb-6" />
 
           <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-primary-foreground/60">
-            <p>© 2025 Ande Mahendra. All rights reserved.</p>
+            <p>© 2026 Ande Mahendra. All rights reserved.</p>
             <p className="mt-2 sm:mt-0">Built with passion and dedication</p>
           </div>
         </div>

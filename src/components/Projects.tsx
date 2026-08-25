@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Smartphone, Bot, MessageSquare, Network, Phone, Cpu, Mic, Globe, Library, Sparkles } from "lucide-react";
+import { ShoppingCart, Smartphone, Bot, MessageSquare, Network, Phone, Cpu, Mic, Globe, Library, Sparkles, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
 import projectsArt from "@/assets/ascii/projects.png";
@@ -17,26 +17,6 @@ const Projects = () => {
       technologies: ["FastAPI", "Python", "RAG", "Vector Embeddings", "LLM", "NLP", "OpenAI API"],
       category: "AI Development",
       image: alfredoRagImage
-    },
-    {
-      title: "E-Commerce Website (Clothing)",
-      type: "Website",
-      icon: ShoppingCart,
-      description: "A fully functional clothing e-commerce website that allows users to browse, search, and purchase fashion products online. Replicates key features of modern online retail platforms with a smooth, user-friendly shopping experience.",
-      scope: "Developed a working website which showcase all types of clothes based on categories",
-      technologies: ["WordPress", "JDBC (Java Database Connectivity)"],
-      category: "Web Development",
-      image: "/lovable-uploads/4e5746ac-e24a-4692-9807-48eb78a52a97.png"
-    },
-    {
-      title: "E-Commerce Application (Clothing)",
-      type: "Application",
-      icon: Smartphone,
-      description: "An Online Apparel Shopping Application designed to enhance customer experience in today's fast-growing e-commerce world. Based on the Engel-Kollat-Blackwell (EKB) Model, analyzing consumer decision-making patterns for online clothing purchases.",
-      scope: "Defines comprehensive functionality and boundaries with potential for future development",
-      technologies: ["Python", "MongoDB", "Windows Platform"],
-      category: "Application Development",
-      image: "/lovable-uploads/5c569caa-9b04-4336-9ab6-2189d9382fb8.png"
     },
     {
       title: "Alfredo AI Agent",
@@ -105,6 +85,35 @@ const Projects = () => {
       scope: "Built and configured the application layer for an AI-assisted website workflow.",
       technologies: ["PHP", "CodeIgniter 4", "MySQL"],
       category: "Web Development"
+    },
+    {
+      title: "Realtor Voice Widget",
+      type: "Voice AI",
+      icon: Home,
+      description: "An embeddable AI voice assistant for real-estate websites — one script tag adds a floating mic button that opens a real-time spoken conversation in the browser, handling listings, rentals, leads, and bookings.",
+      scope: "Adapted a telephony voice agent into a WebRTC browser widget with per-tenant configurable STT/LLM/TTS providers and a lead-capture pipeline.",
+      technologies: ["LiveKit", "Next.js", "Python", "Deepgram", "Sarvam AI", "WebRTC"],
+      category: "AI Development"
+    },
+    {
+      title: "E-Commerce Website (Clothing)",
+      type: "Website",
+      icon: ShoppingCart,
+      description: "A fully functional clothing e-commerce website that allows users to browse, search, and purchase fashion products online. Replicates key features of modern online retail platforms with a smooth, user-friendly shopping experience.",
+      scope: "Developed a working website which showcase all types of clothes based on categories",
+      technologies: ["WordPress", "JDBC (Java Database Connectivity)"],
+      category: "Web Development",
+      image: "/lovable-uploads/4e5746ac-e24a-4692-9807-48eb78a52a97.png"
+    },
+    {
+      title: "E-Commerce Application (Clothing)",
+      type: "Application",
+      icon: Smartphone,
+      description: "An Online Apparel Shopping Application designed to enhance customer experience in today's fast-growing e-commerce world. Based on the Engel-Kollat-Blackwell (EKB) Model, analyzing consumer decision-making patterns for online clothing purchases.",
+      scope: "Defines comprehensive functionality and boundaries with potential for future development",
+      technologies: ["Python", "MongoDB", "Windows Platform"],
+      category: "Application Development",
+      image: "/lovable-uploads/5c569caa-9b04-4336-9ab6-2189d9382fb8.png"
     }
   ];
 

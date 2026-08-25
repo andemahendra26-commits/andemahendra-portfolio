@@ -1,147 +1,20 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Award, ExternalLink } from "lucide-react";
-import eaLogo from "@/assets/logos/ea-logo.png";
-import ibmLogo from "@/assets/logos/ibm-logo.png";
 import tataLogo from "@/assets/logos/tata-logo.png";
-import linkedinLogo from "@/assets/logos/linkedin-logo.png";
-import deloitteLogo from "@/assets/logos/deloitte-logo.png";
 import bcgLogo from "@/assets/logos/bcg-logo.png";
-import accentureLogo from "@/assets/logos/accenture-logo.png";
 import oracleLogo from "@/assets/logos/oracle-logo.png";
-import infosysLogo from "@/assets/logos/infosys-logo.png";
-import quantiumLogo from "@/assets/logos/quantium-logo.png";
-import udemyLogo from "@/assets/logos/udemy-logo.png";
 import awsLogo from "@/assets/logos/aws-logo.png";
 import certificationsArt from "@/assets/ascii/certifications.png";
 
 const Certifications = () => {
   const certifications = [
     {
-      title: "Introduction to Artificial Intelligence",
-      issuer: "IBM SkillsBuild",
-      date: "September 2024",
+      title: "Certified Artificial Intelligence Practitioner",
+      issuer: "AWS",
+      date: "August 2025",
       type: "AI/ML",
-      logo: ibmLogo
-    },
-    {
-      title: "Software Engineering Job Simulation",
-      issuer: "Electronic Arts (FORAGE)",
-      date: "February 2025",
-      type: "Software Engineering",
-      logo: eaLogo
-    },
-    {
-      title: "Data Visualisation: Empowering Business with Effective Insights",
-      issuer: "TATA Group (FORAGE)",
-      date: "May 2025",
-      type: "Data Analytics",
-      logo: tataLogo
-    },
-    {
-      title: "Python Essential Training",
-      issuer: "LinkedIn Learning",
-      date: "May 2025",
-      type: "Programming",
-      logo: linkedinLogo
-    },
-    {
-      title: "Product Management Job Simulation",
-      issuer: "Electronic Arts (FORAGE)",
-      date: "May 2025",
-      type: "Product Management",
-      logo: eaLogo
-    },
-    {
-      title: "Data Analytics Job Simulation",
-      issuer: "Deloitte (FORAGE)",
-      date: "May 2025",
-      type: "Data Analytics",
-      logo: deloitteLogo
-    },
-    {
-      title: "GenAI Job Simulation",
-      issuer: "BCG (FORAGE)",
-      date: "May 2025",
-      type: "AI/ML",
-      logo: bcgLogo
-    },
-    {
-      title: "Software Engineering Job Simulation",
-      issuer: "Accenture (FORAGE)",
-      date: "May 2025",
-      type: "Software Engineering",
-      logo: accentureLogo
-    },
-    {
-      title: "Prompt Engineering Using ChatGPT",
-      issuer: "LinkedIn Learning",
-      date: "May 2025",
-      type: "AI/ML",
-      logo: linkedinLogo
-    },
-    {
-      title: "Sales Strategy: Using AI and Automation to Sell More",
-      issuer: "LinkedIn Learning",
-      date: "May 2025",
-      type: "Business",
-      logo: linkedinLogo
-    },
-    {
-      title: "Vibe Coding Fundamentals: Tools and Best Practices",
-      issuer: "LinkedIn Learning",
-      date: "May 2025",
-      type: "Programming",
-      logo: linkedinLogo
-    },
-    {
-      title: "Natural Language Processing",
-      issuer: "Udemy",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: udemyLogo
-    },
-    {
-      title: "GenAI-Powered Data Analytics Job Simulation",
-      issuer: "TATA Group (FORAGE)",
-      date: "June 2025",
-      type: "Data Analytics",
-      logo: tataLogo
-    },
-    {
-      title: "Generative AI: Working with Large Language Models",
-      issuer: "LinkedIn Learning",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: linkedinLogo
-    },
-    {
-      title: "Data Analytics Job Simulation",
-      issuer: "Quantium (FORAGE)",
-      date: "June 2025",
-      type: "Data Analytics",
-      logo: quantiumLogo
-    },
-    {
-      title: "Prompt Engineering",
-      issuer: "Infosys",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: infosysLogo
-    },
-    {
-      title: "AI Foundations Associate",
-      issuer: "Oracle University",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: oracleLogo
-    },
-    {
-      title: "AI Aware",
-      issuer: "Intel & Digital India",
-      date: "June 2025",
-      type: "AI/ML",
-      logo: null
+      logo: awsLogo
     },
     {
       title: "Certified Machine Learning Specialty",
@@ -151,11 +24,25 @@ const Certifications = () => {
       logo: awsLogo
     },
     {
-      title: "Certified Artificial Intelligence Practitioner",
-      issuer: "AWS",
-      date: "August 2025",
+      title: "AI Foundations Associate",
+      issuer: "Oracle University",
+      date: "June 2025",
       type: "AI/ML",
-      logo: awsLogo
+      logo: oracleLogo
+    },
+    {
+      title: "GenAI Job Simulation",
+      issuer: "BCG (FORAGE)",
+      date: "May 2025",
+      type: "AI/ML",
+      logo: bcgLogo
+    },
+    {
+      title: "GenAI-Powered Data Analytics Job Simulation",
+      issuer: "TATA Group (FORAGE)",
+      date: "June 2025",
+      type: "Data Analytics",
+      logo: tataLogo
     }
   ];
 

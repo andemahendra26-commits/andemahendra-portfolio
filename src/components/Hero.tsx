@@ -92,9 +92,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.33, delay: 0.44 }}
             >
-              GenAI Engineer at Rovix AI, building multi-agent AI systems and production-grade generative
-              AI tooling. Final-year B.Tech Computer Science Engineering (AI & ML) student passionate about
-              shipping reliable, scalable AI.
+              I build AI that builds things.
             </motion.p>
 
             {/* Contact Info */}

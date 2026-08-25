@@ -38,7 +38,7 @@ const Contact = () => {
           <h2 className="sr-only">Contact</h2>
           <img src={contactArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto mb-4" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to start my professional journey. Let's connect and explore opportunities together.
+            Open to new opportunities and collaborations. Let's build something great together.
           </p>
         </div>
 
@@ -70,9 +70,9 @@ const Contact = () => {
                 <div className="mt-8 pt-8 border-t border-border">
                   <div className="space-y-4">
                     <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold text-primary mb-2">Ready to Contribute</h4>
+                      <h4 className="font-semibold text-primary mb-2">Let's Build Something</h4>
                       <p className="text-sm text-muted-foreground">
-                        Eager to bring fresh perspectives and dedication to your team
+                        Bringing production AI experience to your team's next challenge
                       </p>
                     </div>
                     <Button className="w-full flex items-center gap-2 shadow-soft">
@@ -91,30 +91,30 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   <div className="p-4 bg-accent rounded-lg">
-                    <h4 className="font-semibold text-accent-foreground mb-2">Academic Status</h4>
+                    <h4 className="font-semibold text-accent-foreground mb-2">Currently</h4>
                     <p className="text-accent-foreground/80">
-                      Final year B.Tech student (AI & ML) - Graduating May 2026
+                      GenAI Engineer @ Rovix AI
                     </p>
                   </div>
 
                   <div className="p-4 bg-primary/10 rounded-lg">
-                    <h4 className="font-semibold text-foreground mb-2">Career Objective</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Open To</h4>
                     <p className="text-muted-foreground">
-                      Seeking entry-level opportunities in AI/ML, Software Development, or Data Analytics
+                      Senior AI roles, consulting, and collaboration
                     </p>
                   </div>
 
                   <div className="p-4 bg-muted rounded-lg">
-                    <h4 className="font-semibold text-muted-foreground mb-2">Availability</h4>
+                    <h4 className="font-semibold text-muted-foreground mb-2">Based In</h4>
                     <p className="text-muted-foreground">
-                      Available for internships and full-time positions
+                      Hyderabad, India
                     </p>
                   </div>
 
                   <div className="p-4 bg-secondary rounded-lg">
-                    <h4 className="font-semibold text-secondary-foreground mb-2">Preferred Locations</h4>
+                    <h4 className="font-semibold text-secondary-foreground mb-2">Remote</h4>
                     <p className="text-secondary-foreground/80">
-                      Hyderabad, Bangalore, Chennai, or Remote
+                      Open to remote work worldwide
                     </p>
                   </div>
                 </div>

@@ -83,8 +83,8 @@ const About = () => {
                 <h3 className="text-2xl font-semibold text-foreground mb-6">Professional Objective</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   GenAI Engineer at Rovix AI, promoted from Prompt Engineer, building multi-agent AI systems, LLM orchestration
-                  pipelines, and production-grade generative AI tooling. Final-year B.Tech Computer Science Engineering
-                  (Artificial Intelligence & Machine Learning) student with hands-on experience across prompt engineering, RAG
+                  pipelines, and production-grade generative AI tooling. B.Tech Computer Science Engineering
+                  (Artificial Intelligence & Machine Learning) graduate with hands-on experience across agentic architectures, RAG
                   systems, voice AI, and NLP — gained through roles at Rovix AI, TechnoHacks EduTech, The Developers Arena, and
                   Viswam.AI's Summer of AI program. I build things end to end: from multi-agent deliberation systems and
                   self-hosted voice platforms to a published NLP library, always with a focus on shipping AI that is reliable,

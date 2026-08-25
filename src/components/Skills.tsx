@@ -1,10 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  Brain,
+  Network,
+  Mic,
+  Cpu,
+  Server,
   Code,
-  Wrench,
-  Globe,
   Database,
   Users,
   Clock,
@@ -28,27 +29,33 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Artificial Intelligence",
-      icon: Brain,
-      skills: ["Prompt Engineering", "RAGs", "LLMs", "NLP"],
+      title: "Agentic AI & Multi-Agent Systems",
+      icon: Network,
+      skills: ["Multi-Agent Orchestration", "RAG Pipelines", "Prompt Engineering", "LLM Orchestration"],
+      color: "bg-primary"
+    },
+    {
+      title: "Voice AI",
+      icon: Mic,
+      skills: ["LiveKit", "Twilio", "ElevenLabs", "Sarvam AI"],
+      color: "bg-primary"
+    },
+    {
+      title: "Local & Cloud LLMs",
+      icon: Cpu,
+      skills: ["Ollama", "Hermes", "Qwen", "llama.cpp", "NVIDIA NIM"],
+      color: "bg-primary"
+    },
+    {
+      title: "Backend & Infrastructure",
+      icon: Server,
+      skills: ["FastAPI", "Docker", "Microservices", "n8n Automation"],
       color: "bg-primary"
     },
     {
       title: "Programming Languages",
       icon: Code,
-      skills: ["C", "OOPS Concepts", "Java", "Python"],
-      color: "bg-primary"
-    },
-    {
-      title: "Tools & IDEs",
-      icon: Wrench,
-      skills: ["Visual Studio", "Notepad++"],
-      color: "bg-primary"
-    },
-    {
-      title: "Web Development",
-      icon: Globe,
-      skills: ["HTML", "CSS", "JavaScript"],
+      skills: ["Python", "JavaScript", "PHP (CodeIgniter 4)"],
       color: "bg-primary"
     },
     {
