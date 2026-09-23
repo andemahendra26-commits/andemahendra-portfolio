@@ -1,273 +1,281 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Smartphone, Bot, MessageSquare, Network, Phone, Cpu, Mic, Globe, Library, Sparkles, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  ShoppingCart,
+  Smartphone,
+  Bot,
+  MessageSquare,
+  Network,
+  Phone,
+  Mic,
+  Globe,
+  Library,
+  Sparkles,
+  Home,
+  Github,
+  ExternalLink,
+  Package,
+  ChevronDown,
+  type LucideIcon
+} from "lucide-react";
 import { motion } from "framer-motion";
-import alfredoRagImage from "@/assets/projects/alfredo-ai-chatbot.png";
 import projectsArt from "@/assets/ascii/projects.png";
+import SectionHeading from "@/components/SectionHeading";
+import { profile } from "@/lib/profile";
+
+interface ProjectLink {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+}
+
+interface Project {
+  title: string;
+  type: string;
+  icon: LucideIcon;
+  summary: string;
+  built?: string;
+  stat?: string;
+  technologies: string[];
+  links?: ProjectLink[];
+}
+
+const featuredProjects: Project[] = [
+  {
+    title: "Alfredo Council",
+    type: "Multi-Agent System",
+    icon: Network,
+    stat: "14 models · 11 protocols",
+    summary: "A multi-agent deliberation system where 14 AI models from the NVIDIA NIM catalog debate a question through 11 real coordination protocols (swarm, blackboard, hierarchical, debate and more) with a live HUD streaming every model's reasoning.",
+    built: "The protocol engine, streaming HUD, and fault-tolerant orchestration layer for real-time multi-model deliberation.",
+    technologies: ["FastAPI", "Python", "NVIDIA NIM", "Multi-Agent Systems", "NDJSON Streaming"],
+    links: [
+      { label: "Code", href: `${profile.github}/Ai_council`, icon: Github }
+    ]
+  },
+  {
+    title: "Alfredo NLP Library",
+    type: "Open-source Python Library",
+    icon: Library,
+    stat: "pip install alfredo-ai",
+    summary: "A self-contained, offline NLP toolkit implementing TF-IDF, TextRank and sentiment scoring from scratch, with no LLM API calls and no network latency.",
+    built: "Authored and published a NumPy-vectorized library for summarization, sentiment analysis, classification and keyword extraction.",
+    technologies: ["Python", "NumPy", "NLP", "TF-IDF", "PyPI"],
+    links: [
+      { label: "Code", href: `${profile.github}/alredo_py-NLP-lib`, icon: Github },
+      { label: "PyPI", href: "https://pypi.org/project/alfredo-ai/", icon: Package }
+    ]
+  },
+  {
+    title: "Rovix Hermes Agent",
+    type: "Self-improving Agent",
+    icon: Sparkles,
+    stat: "Telegram · Discord · Slack · CLI",
+    summary: "A self-improving AI agent platform with a persistent learning loop. It creates and refines its own skills, retains memory across sessions, and runs across four channels from a single gateway.",
+    built: "Deployed and customized a self-hosted autonomous agent with scheduled automations and cross-platform delivery for Rovix AI.",
+    technologies: ["Python", "LLM Orchestration", "Agent Memory", "Automation"]
+  }
+];
+
+const moreProjects: Project[] = [
+  {
+    title: "AI Voice Outbound Agent",
+    type: "Voice AI",
+    icon: Phone,
+    summary: "Real-time voice agent that places outbound phone calls, holds live conversations and triggers actions, with LiveKit for streaming audio and Vobiz for SIP telephony.",
+    technologies: ["LiveKit", "Vobiz", "Groq", "Sarvam AI", "Python"]
+  },
+  {
+    title: "Realtor Voice Widget",
+    type: "Voice AI",
+    icon: Home,
+    summary: "Embeddable voice assistant for real-estate sites: one script tag adds a mic button for spoken conversations about listings, rentals, leads and bookings.",
+    technologies: ["LiveKit", "Next.js", "WebRTC", "Deepgram", "Sarvam AI"]
+  },
+  {
+    title: "Voice AI Platform",
+    type: "Voice AI",
+    icon: Mic,
+    summary: "Self-hosted replacement for ElevenLabs, Twilio and Whisper: one microservice backend for speech-to-text, text-to-speech and telephony.",
+    technologies: ["Docker", "FastAPI", "Whisper", "WebSocket", "Microservices"]
+  },
+  {
+    title: "Alfredo.AI RAG Chatbot",
+    type: "RAG",
+    icon: MessageSquare,
+    summary: "Upload documents and ask questions in natural language, with answers grounded only in your data through a semantic-search retrieval pipeline.",
+    technologies: ["FastAPI", "Python", "RAG", "Vector Embeddings", "OpenAI API"]
+  },
+  {
+    title: "Alfredo AI Agent",
+    type: "AI Agent",
+    icon: Bot,
+    summary: "Personal AI assistant on AgentX.so, routing across multiple model providers for broader, more reliable answers.",
+    technologies: ["AgentX.so", "OpenAI API", "Anthropic", "Llama", "DeepSeek"],
+    links: [
+      { label: "Live demo", href: "https://app.agentx.so/shared-chat/?agent=688a1e4a42b87b91d3bab664", icon: ExternalLink }
+    ]
+  },
+  {
+    title: "AI Website Agent",
+    type: "Web",
+    icon: Globe,
+    summary: "CodeIgniter 4 web application extending a traditional PHP stack with agent-driven website functionality.",
+    technologies: ["PHP", "CodeIgniter 4", "MySQL"]
+  },
+  {
+    title: "Apparel Shopping App",
+    type: "Application",
+    icon: Smartphone,
+    summary: "Online apparel shopping application modelled on the Engel-Kollat-Blackwell consumer decision model.",
+    technologies: ["Python", "MongoDB"],
+    links: [
+      { label: "Code", href: `${profile.github}/Apearal-App`, icon: Github }
+    ]
+  },
+  {
+    title: "Clothing E-Commerce Website",
+    type: "Web",
+    icon: ShoppingCart,
+    summary: "Clothing storefront with category browsing, search and checkout.",
+    technologies: ["WordPress", "JDBC"]
+  }
+];
+
+const INITIAL_MORE = 4;
+
+const ProjectLinks = ({ links, title }: { links?: ProjectLink[]; title: string }) => {
+  if (!links?.length) return null;
+  return (
+    <div className="flex flex-wrap gap-2">
+      {links.map((link) => (
+        <a
+          key={link.href}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${title}: ${link.label}`}
+          className="inline-flex items-center gap-1.5 min-h-11 px-3 rounded-md border border-border text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <link.icon className="w-4 h-4" aria-hidden="true" />
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+};
 
 const Projects = () => {
-
-  const projects = [
-    {
-      title: "Alfredo.AI - RAG Chatbot",
-      type: "AI Application",
-      icon: MessageSquare,
-      description: "A Retrieval-Augmented Generation (RAG) based AI Chatbot that allows users to upload documents and ask questions in natural language, receiving accurate, context-aware answers grounded only in their data. Solves AI hallucinations by retrieving relevant information before generating responses.",
-      scope: "Built a smart document-aware chatbot combining semantic search and LLMs with clean FastAPI backend, vector embeddings, and scalable retrieval pipeline",
-      technologies: ["FastAPI", "Python", "RAG", "Vector Embeddings", "LLM", "NLP", "OpenAI API"],
-      category: "AI Development",
-      image: alfredoRagImage
-    },
-    {
-      title: "Alfredo AI Agent",
-      type: "AI Agent",
-      icon: Bot,
-      description: "A custom-trained AI personal assistant built using AgentX.so platform. Alfredo is designed to provide intelligent responses and assistance across various domains, integrating multiple AI models for enhanced performance and versatility.",
-      scope: "Developed and trained a personalized AI agent with multi-model integration for comprehensive AI assistance",
-      technologies: ["AgentX.so", "OpenAI API", "Llama", "Anthropic", "Grok", "DeepSeek"],
-      category: "AI Development",
-      image: "/lovable-uploads/c113e111-f5c7-4ad8-9df4-31d2d382bcc7.png",
-      demoUrl: "https://app.agentx.so/shared-chat/?agent=688a1e4a42b87b91d3bab664"
-    },
-    {
-      title: "Alfredo Council",
-      type: "Multi-Agent AI System",
-      icon: Network,
-      description: "A multi-agent deliberation system where 14 AI models from the NVIDIA NIM catalog debate a question through 11 real coordination protocols — swarm, blackboard, hierarchical, debate, and more — with a live HUD streaming every model's reasoning as the topology of the protocol runs.",
-      scope: "Designed the protocol engine, streaming HUD, and fault-tolerant orchestration layer for real-time multi-model deliberation.",
-      technologies: ["FastAPI", "Python", "NVIDIA NIM", "Multi-Agent Systems", "NDJSON Streaming"],
-      category: "AI Development",
-      highlight: true
-    },
-    {
-      title: "Rovix Hermes Agent",
-      type: "AI Agent",
-      icon: Sparkles,
-      description: "A self-improving AI agent platform with a persistent learning loop — it creates and refines its own skills, retains memory across sessions, and runs across Telegram, Discord, Slack, and CLI from a single gateway.",
-      scope: "Deployed and customized a self-hosted autonomous agent with scheduled automations and cross-platform delivery for Rovix AI use cases.",
-      technologies: ["Python", "LLM Orchestration", "Agent Memory", "Automation"],
-      category: "AI Development",
-      highlight: true
-    },
-    {
-      title: "Alfredo NLP Library",
-      type: "Python Library",
-      icon: Library,
-      description: "A self-contained, offline NLP toolkit implementing TF-IDF, TextRank, and sentiment scoring from scratch — no LLM API calls, no network latency — published as a pip-installable package.",
-      scope: "Authored and published an open-source, NumPy-vectorized NLP library for summarization, sentiment analysis, classification, and keyword extraction.",
-      technologies: ["Python", "NumPy", "NLP", "TF-IDF", "PyPI"],
-      category: "AI Development",
-      highlight: true
-    },
-    {
-      title: "AI Voice Outbound Agent",
-      type: "Voice AI",
-      icon: Phone,
-      description: "A real-time conversational voice agent that places outbound phone calls, handles live conversations, and triggers actions — built on LiveKit for streaming audio and Vobiz for SIP telephony.",
-      scope: "Integrated a low-latency voice pipeline combining real-time transcription, LLM reasoning, and natural speech synthesis for phone-based conversations.",
-      technologies: ["LiveKit", "Vobiz", "Groq", "Sarvam AI", "Python"],
-      category: "AI Development"
-    },
-    {
-      title: "Voice AI Platform",
-      type: "Voice AI",
-      icon: Mic,
-      description: "A self-hosted replacement for ElevenLabs, Twilio, and Whisper — a single microservice backend powering speech-to-text, text-to-speech, and telephony for real-time voice applications.",
-      scope: "Designed a modular services architecture (STT, TTS, conversation, telephony, analytics) that reduces reliance on paid third-party voice APIs.",
-      technologies: ["Docker", "FastAPI", "Whisper", "WebSocket", "Microservices"],
-      category: "AI Development"
-    },
-    {
-      title: "AI Website Agent",
-      type: "Web Application",
-      icon: Globe,
-      description: "An AI-integrated web application built on the CodeIgniter 4 framework, extending a traditional PHP stack with automated, agent-driven website functionality.",
-      scope: "Built and configured the application layer for an AI-assisted website workflow.",
-      technologies: ["PHP", "CodeIgniter 4", "MySQL"],
-      category: "Web Development"
-    },
-    {
-      title: "Realtor Voice Widget",
-      type: "Voice AI",
-      icon: Home,
-      description: "An embeddable AI voice assistant for real-estate websites — one script tag adds a floating mic button that opens a real-time spoken conversation in the browser, handling listings, rentals, leads, and bookings.",
-      scope: "Adapted a telephony voice agent into a WebRTC browser widget with per-tenant configurable STT/LLM/TTS providers and a lead-capture pipeline.",
-      technologies: ["LiveKit", "Next.js", "Python", "Deepgram", "Sarvam AI", "WebRTC"],
-      category: "AI Development"
-    },
-    {
-      title: "E-Commerce Website (Clothing)",
-      type: "Website",
-      icon: ShoppingCart,
-      description: "A fully functional clothing e-commerce website that allows users to browse, search, and purchase fashion products online. Replicates key features of modern online retail platforms with a smooth, user-friendly shopping experience.",
-      scope: "Developed a working website which showcase all types of clothes based on categories",
-      technologies: ["WordPress", "JDBC (Java Database Connectivity)"],
-      category: "Web Development",
-      image: "/lovable-uploads/4e5746ac-e24a-4692-9807-48eb78a52a97.png"
-    },
-    {
-      title: "E-Commerce Application (Clothing)",
-      type: "Application",
-      icon: Smartphone,
-      description: "An Online Apparel Shopping Application designed to enhance customer experience in today's fast-growing e-commerce world. Based on the Engel-Kollat-Blackwell (EKB) Model, analyzing consumer decision-making patterns for online clothing purchases.",
-      scope: "Defines comprehensive functionality and boundaries with potential for future development",
-      technologies: ["Python", "MongoDB", "Windows Platform"],
-      category: "Application Development",
-      image: "/lovable-uploads/5c569caa-9b04-4336-9ab6-2189d9382fb8.png"
-    }
-  ];
+  const [showAll, setShowAll] = useState(false);
+  const visibleMore = showAll ? moreProjects : moreProjects.slice(0, INITIAL_MORE);
 
   return (
-    <section
-      id="projects"
-      className="py-20 bg-muted/30 relative overflow-hidden"
-    >
+    <section id="projects" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.44, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div
-            className="mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.33, delay: 0.11 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="sr-only">Projects</h2>
-            <img src={projectsArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto" />
-          </motion.div>
-          <motion.p
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.33, delay: 0.22 }}
-            viewport={{ once: true }}
-          >
-            Showcasing my technical expertise through real-world applications
-          </motion.p>
-        </motion.div>
+        <SectionHeading
+          title="Projects"
+          art={projectsArt}
+          subtitle="Agents, voice AI and NLP systems I've designed and shipped"
+        />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.165 }
-              }}
-              transition={{
-                duration: 0.275,
-                delay: index * 0.055,
-                ease: "easeOut"
-              }}
-              viewport={{ once: true }}
-              className="h-full"
+        {/* Featured */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {featuredProjects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="group flex flex-col rounded-xl border border-border bg-card overflow-hidden shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all duration-300"
             >
-              <Card className={`shadow-soft hover:shadow-elegant transition-all duration-500 h-full backdrop-blur-sm group ${project.highlight ? "ring-2 ring-primary" : ""}`}>
-                <CardHeader className="pb-4">
-                  <motion.div
-                    className="flex items-start justify-between"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.275, delay: 0.11 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <motion.div
-                        className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.165 }}
-                      >
-                        <project.icon className="w-6 h-6 text-primary-foreground" />
-                      </motion.div>
-                      <div>
-                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-                        <div className="flex flex-wrap gap-2 mt-1">
-                          <Badge variant="secondary" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                            {project.category}
-                          </Badge>
-                          {project.highlight && (
-                            <Badge className="bg-primary text-primary-foreground">Featured</Badge>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </CardHeader>
+              {/* Visual header */}
+              <div className="relative h-40 bg-primary text-primary-foreground overflow-hidden">
+                <div
+                  className="absolute inset-0 opacity-20 [background-image:radial-gradient(currentColor_1px,transparent_1px)] [background-size:14px_14px]"
+                  aria-hidden="true"
+                />
+                <project.icon
+                  className="absolute -right-4 -bottom-6 w-36 h-36 opacity-15 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+                  aria-hidden="true"
+                />
+                <div className="relative h-full flex flex-col justify-between p-5">
+                  <span className="self-start text-xs font-medium uppercase tracking-wider px-2 py-1 rounded border border-primary-foreground/30">
+                    Featured
+                  </span>
+                  <p className="font-mono text-sm sm:text-base">{project.stat}</p>
+                </div>
+              </div>
 
-                <CardContent className="space-y-4 flex flex-col h-full">
-                  {project.image && (
-                    <motion.div
-                      className="w-full h-48 rounded-lg overflow-hidden group-hover:shadow-lg transition-shadow duration-300"
-                      initial={{ opacity: 0, scale: 1.1 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.33 }}
-                      viewport={{ once: true }}
-                    >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </motion.div>
-                  )}
-                  <motion.p
-                    className="text-muted-foreground leading-relaxed"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.275, delay: 0.165 }}
-                    viewport={{ once: true }}
-                  >
-                    {project.description}
-                  </motion.p>
-
-                  <motion.div
-                    className="space-y-3 flex-grow"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.275, delay: 0.22 }}
-                    viewport={{ once: true }}
-                  >
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Project Scope:</h4>
-                      <p className="text-sm text-muted-foreground">{project.scope}</p>
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Technologies Used:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, techIndex) => (
-                          <motion.div
-                            key={techIndex}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            whileHover={{ scale: 1.1 }}
-                            transition={{
-                              duration: 0.165,
-                              delay: techIndex * 0.028,
-                              ease: "easeOut"
-                            }}
-                            viewport={{ once: true }}
-                          >
-                            <Badge variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
-                              {tech}
-                            </Badge>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-
-                </CardContent>
-              </Card>
-            </motion.div>
+              <div className="flex flex-col flex-1 p-6 gap-4">
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
+                    {project.type}
+                  </p>
+                  <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">{project.summary}</p>
+                {project.built && (
+                  <p className="text-sm text-foreground/80 leading-relaxed border-l-2 border-foreground/20 pl-3">
+                    <span className="font-medium text-foreground">Built: </span>
+                    {project.built}
+                  </p>
+                )}
+                <ul className="flex flex-wrap gap-1.5 mt-auto" aria-label="Technologies">
+                  {project.technologies.map((tech) => (
+                    <li key={tech}>
+                      <Badge variant="secondary" className="font-normal text-[13px]">{tech}</Badge>
+                    </li>
+                  ))}
+                </ul>
+                <ProjectLinks links={project.links} title={project.title} />
+              </div>
+            </motion.article>
           ))}
+        </div>
+
+        {/* More projects */}
+        <div className="max-w-7xl mx-auto mt-16">
+          <h3 className="text-lg font-semibold text-foreground mb-6">More projects</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {visibleMore.map((project) => (
+              <article
+                key={project.title}
+                className="flex gap-4 rounded-xl border border-border bg-card p-5 hover:border-foreground/30 transition-colors"
+              >
+                <div className="shrink-0 grid place-items-center w-11 h-11 rounded-lg bg-secondary text-secondary-foreground">
+                  <project.icon className="w-5 h-5" aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1 space-y-2">
+                  <div className="flex flex-wrap items-baseline gap-x-2">
+                    <h4 className="font-semibold text-foreground">{project.title}</h4>
+                    <span className="text-xs text-muted-foreground">{project.type}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+                  <p className="text-[13px] text-foreground/70">
+                    {project.technologies.join(" · ")}
+                  </p>
+                  <ProjectLinks links={project.links} title={project.title} />
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {moreProjects.length > INITIAL_MORE && (
+            <div className="flex justify-center mt-8">
+              <Button
+                variant="outline"
+                size="lg"
+                className="h-12"
+                onClick={() => setShowAll((v) => !v)}
+                aria-expanded={showAll}
+              >
+                {showAll ? "Show fewer" : `Show all ${moreProjects.length} projects`}
+                <ChevronDown className={`w-4 h-4 transition-transform ${showAll ? "rotate-180" : ""}`} />
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>

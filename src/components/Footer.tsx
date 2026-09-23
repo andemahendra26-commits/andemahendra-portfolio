@@ -1,52 +1,33 @@
-import { Separator } from "@/components/ui/separator";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { profile } from "@/lib/profile";
+
+const footerLinks = [
+  { icon: Mail, label: "Email", href: `mailto:${profile.email}` },
+  { icon: Github, label: "GitHub", href: profile.github, external: true },
+  { icon: Linkedin, label: "LinkedIn", href: profile.linkedin, external: true }
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-2">Ande Mahendra</h3>
-            <p className="text-primary-foreground/80">
-              GenAI Engineer | Building AI that builds things
-            </p>
-          </div>
-
-          <Separator className="bg-primary-foreground/20 mb-8" />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h4 className="font-semibold mb-4">Education</h4>
-              <p className="text-primary-foreground/80 text-sm">
-                B.Tech CSE (AI & ML)<br />
-                Siddhartha Institute of Engineering and Technology
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Specialization</h4>
-              <p className="text-primary-foreground/80 text-sm">
-                Artificial Intelligence<br />
-                Machine Learning & Data Analytics
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-primary-foreground/80 text-sm">
-                andemahendra26@gmail.com<br />
-                +91 8328592182
-              </p>
-            </div>
-          </div>
-
-          <Separator className="bg-primary-foreground/20 mb-6" />
-
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-primary-foreground/60">
-            <p>© 2026 Ande Mahendra. All rights reserved.</p>
-            <p className="mt-2 sm:mt-0">Built with passion and dedication</p>
-          </div>
-        </div>
+    <footer className="border-t border-border bg-background">
+      <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-sm text-muted-foreground text-center sm:text-left">
+          © {new Date().getFullYear()} {profile.name} · {profile.role}
+        </p>
+        <ul className="flex items-center gap-1">
+          {footerLinks.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                aria-label={link.label}
+                className="grid place-items-center w-11 h-11 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <link.icon className="w-5 h-5" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

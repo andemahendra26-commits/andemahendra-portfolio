@@ -114,6 +114,17 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /* Anchor jumps land below the fixed nav */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
   }

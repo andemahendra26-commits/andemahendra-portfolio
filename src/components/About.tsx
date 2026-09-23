@@ -1,207 +1,79 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Globe, BookOpen, Music } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Languages, MapPin } from "lucide-react";
 import aboutArt from "@/assets/ascii/about.png";
+import SectionHeading from "@/components/SectionHeading";
+
+const facts = [
+  {
+    icon: Briefcase,
+    label: "Currently",
+    value: "GenAI Engineer at Rovix AI"
+  },
+  {
+    icon: GraduationCap,
+    label: "Education",
+    value: "B.Tech CSE (AI & ML), Siddhartha Institute of Engineering and Technology, 2022–2026"
+  },
+  {
+    icon: Languages,
+    label: "Languages",
+    value: "English, Hindi, Telugu"
+  },
+  {
+    icon: MapPin,
+    label: "Based in",
+    value: "Hyderabad, India · open to remote"
+  }
+];
 
 const About = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
-
-  const languages = [
-    { name: "English", level: "Fluent" },
-    { name: "Hindi", level: "Fluent" },
-    { name: "Telugu", level: "Fluent" }
-  ];
-
-  const hobbies = [
-    { name: "Reading Mythology Books", icon: BookOpen },
-    { name: "Listening to informative podcasts", icon: Music },
-    { name: "Watching Sci-Fi movies", icon: Globe }
-  ];
-
-  const activities = [
-    "Event Organizing: Organizing college fests, technical symposiums, or cultural events",
-    "Social Services: Joining government philanthropy events and donation camps"
-  ];
-
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-      className="py-20 bg-muted/30"
-    >
-      <motion.div
-        className="container mx-auto px-4"
-        style={{ y }}
-      >
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.44, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div
-            className="mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.33, delay: 0.11 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="sr-only">About Me</h2>
-            <img src={aboutArt} alt="" aria-hidden="true" className="dark:invert h-8 sm:h-10 md:h-12 lg:h-14 w-auto max-w-full mx-auto" />
-          </motion.div>
-          <motion.p
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.33, delay: 0.22 }}
-            viewport={{ once: true }}
-          >
-            Get to know more about my background, interests, and what drives me
-          </motion.p>
-        </motion.div>
+    <section id="about" className="py-20 md:py-28 bg-background">
+      <div className="container mx-auto px-4">
+        <SectionHeading title="About" art={aboutArt} />
 
-        <div className="max-w-6xl mx-auto">
-          {/* Objective Statement */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            className="lg:col-span-3 space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.33 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.35 }}
+            viewport={{ once: true, margin: "-60px" }}
           >
-            <Card className="shadow-soft mb-12">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-foreground mb-6">Professional Objective</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  GenAI Engineer at Rovix AI, promoted from Prompt Engineer, building multi-agent AI systems, LLM orchestration
-                  pipelines, and production-grade generative AI tooling. B.Tech Computer Science Engineering
-                  (Artificial Intelligence & Machine Learning) graduate with hands-on experience across agentic architectures, RAG
-                  systems, voice AI, and NLP — gained through roles at Rovix AI, TechnoHacks EduTech, The Developers Arena, and
-                  Viswam.AI's Summer of AI program. I build things end to end: from multi-agent deliberation systems and
-                  self-hosted voice platforms to a published NLP library, always with a focus on shipping AI that is reliable,
-                  scalable, and production-ready.
-                </p>
-              </CardContent>
-            </Card>
+            <p>
+              I'm a <span className="text-foreground font-medium">GenAI Engineer at Rovix AI</span>, promoted from
+              Prompt Engineer, where I build multi-agent systems, LLM orchestration pipelines and production
+              generative AI tooling.
+            </p>
+            <p>
+              I like building things end to end: from multi-agent deliberation systems and self-hosted voice
+              platforms to an NLP library published on PyPI. My focus is AI that is reliable once real users touch it.
+            </p>
+            <p className="text-sm md:text-base">
+              Outside work: mythology books, informative podcasts and sci-fi films. I've also organised college
+              fests and volunteered at donation camps.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Languages */}
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.275, delay: 0.11 }}
-              viewport={{ once: true }}
-            >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-6">
-                    <motion.div
-                      className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.165 }}
-                    >
-                      <Globe className="w-5 h-5 text-primary-foreground" />
-                    </motion.div>
-                    <h3 className="text-xl font-semibold text-foreground">Languages</h3>
-                  </div>
-                  <div className="space-y-3">
-                    {languages.map((lang, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex justify-between items-center"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.22, delay: index * 0.055 }}
-                        viewport={{ once: true }}
-                      >
-                        <span className="text-foreground font-medium">{lang.name}</span>
-                        <span className="text-sm text-muted-foreground bg-accent px-2 py-1 rounded">
-                          {lang.level}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Hobbies & Interests */}
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.275, delay: 0.22 }}
-              viewport={{ once: true }}
-            >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-6">Hobbies & Interests</h3>
-                  <div className="space-y-4">
-                    {hobbies.map((hobby, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-start gap-3"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.22, delay: index * 0.055 }}
-                        viewport={{ once: true }}
-                      >
-                        <hobby.icon className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{hobby.name}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Extracurricular Activities */}
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.275, delay: 0.33 }}
-              viewport={{ once: true }}
-            >
-              <Card className="shadow-soft hover:shadow-elegant transition-all duration-300">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-6">Extracurricular Activities</h3>
-                  <div className="space-y-4">
-                    {activities.map((activity, index) => (
-                      <motion.div
-                        key={index}
-                        className="text-muted-foreground"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.22, delay: index * 0.055 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{activity}</span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
+          <motion.dl
+            className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.08 }}
+            viewport={{ once: true, margin: "-60px" }}
+          >
+            {facts.map((fact) => (
+              <div key={fact.label} className="flex gap-3 rounded-xl border border-border bg-card p-4">
+                <fact.icon className="w-5 h-5 mt-0.5 shrink-0 text-foreground" aria-hidden="true" />
+                <div className="min-w-0">
+                  <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{fact.label}</dt>
+                  <dd className="text-sm text-foreground mt-0.5">{fact.value}</dd>
+                </div>
+              </div>
+            ))}
+          </motion.dl>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
